@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FIT3179 — Australia Choropleth</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Vega libraries (official CDNs) -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <header>
+    <h1>Experienced Discrimination ('000) — by Australian state</h1>
+    <p class="sub">Data: ABS (values in thousands). Map: Natural Earth.</p>
+  </header>
+
+  <main>
+    <div id="vis" class="card"></div>
+    <figcaption class="caption">
+      Note: A choropleth ideally uses **rates** (e.g., per 1,000 people). These are absolute counts.
+    </figcaption>
+  </main>
+
+  <script>
+    vegaEmbed("#vis", "map.json", {actions: false}).catch(console.error);
+  </script>
+</body>
+</html>

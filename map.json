@@ -1,0 +1,47 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Experienced Discrimination ('000) — by Australian state",
+  "width": 700,
+  "height": 600,
+  "projection": {
+    "type": "mercator",
+    "center": [133, -28],
+    "scale": 800
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/soniaram94/FIT3179-Data-Visualisation-2/refs/heads/main/australia_states.json",
+        "format": {"type": "topojson", "feature": "ne_50m_admin_1_states_provinces"}
+      },
+      "transform": [
+        {
+          "lookup": "properties.name",
+          "from": {
+            "data": {
+              "url": "https://raw.githubusercontent.com/soniaram94/FIT3179-Data-Visualisation-2/refs/heads/main/disability%20_discrimination.csv"
+            },
+            "key": "State",
+            "fields": ["Discrimination_thousands"]
+          }
+        }
+      ],
+      "mark": {"type": "geoshape", "stroke": "#f8f8ff", "strokeWidth": 0.6},
+      "encoding": {
+        "color": {
+          "field": "Discrimination_thousands",
+          "type": "quantitative",
+          "title": "Discrimination ('000)"
+        },
+        "tooltip": [
+          {"field": "properties.name", "title": "State"},
+          {"field": "Discrimination_thousands", "title": "Discrimination ('000)"}
+        ]
+      }
+    },
+    {
+      "data": {"graticule": {"step": [10, 10]}},
+      "mark": {"type": "geoshape", "stroke": "#cccccc", "strokeWidth": 0.5, "fill": null}
+    }
+  ]
+}
