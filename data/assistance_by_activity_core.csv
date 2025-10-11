@@ -1,0 +1,31 @@
+activity,category,estimate_k
+Self-care,Profound,287.0
+Self-care,Severe,224.1
+Self-care,Moderate,74.0
+Mobility,Profound,395.1
+Mobility,Severe,333.2
+Mobility,Moderate,110.0
+Communication,Profound,301.1
+Communication,Severe,182.2
+Communication,Moderate,60.1
+Cognitive or emotional tasks,Profound,349.5
+Cognitive or emotional tasks,Severe,294.5
+Cognitive or emotional tasks,Moderate,97.7
+Health care,Profound,286.3
+Health care,Severe,215.2
+Health care,Moderate,80.4
+Reading or writing tasks,Profound,128.3
+Reading or writing tasks,Severe,61.0
+Reading or writing tasks,Moderate,16.3
+Transport,Profound,219.9
+Transport,Severe,160.2
+Transport,Moderate,42.5
+Household chores,Profound,186.3
+Household chores,Severe,180.4
+Household chores,Moderate,99.4
+Property maintenance,Profound,176.1
+Property maintenance,Severe,180.0
+Property maintenance,Moderate,131.2
+Meal preparation,Profound,149.5
+Meal preparation,Severe,79.1
+Meal preparation,Moderate,16.4
