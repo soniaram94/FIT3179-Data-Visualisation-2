@@ -23,49 +23,64 @@
     <div id="age" class="card"></div>
 
     <div class="note">
-      <h3>About this chart </h3>
+      <h3>About this chart</h3>
       <p>
         This chart shows the number of people (in thousands) who had a disability at the time of each survey,
         grouped by current age. Click legend items to compare multiple age groups.
       </p>
       <p>
-        text explaning here:
+        text explaining here:
       </p>
     </div>
 
     <!-- STACKED HORIZONTAL BARS + side copy -->
     <h2>Assistance needed for core activities (by severity)</h2>
-  <div class="grid--wide">
-    <div id="activity" class="card"></div>
-    <aside class="card">
-      <h3>text here</h3>
-      <ul>
-        <li>Each bar = an activity; segments = Profound/Severe/Moderate.</li>
-        <li>Counts shown are in thousands (’000).</li>
-        <li>Use the legend to focus on specific levels.</li>
-      </ul>
-    </aside>
-  </div>
-
-    <!-- MAP + side copy -->
-    <h2>Experienced disability discrimination by state</h2>
-    <div class="grid">
-      <div id="map" class="card"></div>
+    <div class="grid--wide">
+      <div id="activity" class="card"></div>
       <aside class="card">
-        <h3>text</h3>
+        <h3>text here</h3>
         <ul>
-          <li>Values are counts (’000), not rates.</li>
+          <li>Each bar = an activity; segments = Profound/Severe/Moderate.</li>
+          <li>Counts shown are in thousands ('000).</li>
+          <li>Use the legend to focus on specific levels.</li>
+        </ul>
+      </aside>
+    </div>
+
+    <!-- BUBBLE CHART + MAP side by side -->
+    <h2>Discrimination by source and state</h2>
+    <div class="grid">
+      <div id="bubble" class="card"></div>
+      <div id="map" class="card"></div>
+    </div>
+
+    <div class="grid">
+      <aside class="card">
+        <h3>Sources of discrimination</h3>
+        <ul>
+          <li>Bubble size represents the percentage of discrimination experienced.</li>
+          <li>Colors distinguish severity groups: Severe/Profound (red), Other status (orange), All with disability (blue).</li>
+          <li>Providers of goods or services show the highest rates for severe disabilities.</li>
+        </ul>
+      </aside>
+      <aside class="card">
+        <h3>Geographic distribution</h3>
+        <ul>
+          <li>Values are counts ('000), not rates.</li>
           <li>Differences reflect both prevalence and population size.</li>
           <li>more text.</li>
         </ul>
       </aside>
     </div>
 
+  </main>
+
   <script>
-    const opts = { actions:false, renderer:"svg" };  
-    vegaEmbed("#age", "vis/age_area.json", { actions:false }).catch(console.error);
-    vegaEmbed("#activity", "vis/activity_bars.json", {actions:false}).catch(console.error);
-    vegaEmbed("#map", "vis/map.json", { actions:false }).catch(console.error);
+    const opts = { actions: false, renderer: "svg" };
+    vegaEmbed("#age", "vis/age_area.json", opts).catch(console.error);
+    vegaEmbed("#activity", "vis/activity_bars.json", opts).catch(console.error);
+    vegaEmbed("#bubble", "vis/discrimination_bubble.json", opts).catch(console.error);
+    vegaEmbed("#map", "vis/map.json", opts).catch(console.error);
   </script>
 </body>
 </html>

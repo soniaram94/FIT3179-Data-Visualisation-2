@@ -1,0 +1,81 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Sources of discrimination — bubble chart.",
+  "width": 700,
+  "height": 450,
+
+  "data": {
+    "url": "https://raw.githubusercontent.com/soniaram94/FIT3179-Data-Visualisation-2/main/data/discrimination_sources.csv"
+  },
+
+  "transform": [
+    {"fold": ["severe_pct", "other_pct", "all_pct"], "as": ["group_key", "pct"]},
+    {
+      "calculate": "datum.group_key === 'severe_pct' ? 'Severe/Profound' : (datum.group_key === 'other_pct' ? 'Other status' : 'All with disability')",
+      "as": "group"
+    },
+    {
+      "calculate": "toNumber(datum.pct)",
+      "as": "pct_num"
+    }
+  ],
+
+  "mark": {
+    "type": "circle",
+    "opacity": 0.7
+  },
+
+  "encoding": {
+    "x": {
+      "field": "source",
+      "type": "nominal",
+      "axis": {
+        "title": "Source of Discrimination",
+        "labelAngle": -45,
+        "labelLimit": 200
+      }
+    },
+    "y": {
+      "field": "group",
+      "type": "nominal",
+      "axis": {
+        "title": "Disability Severity Group"
+      },
+      "sort": ["Severe/Profound", "Other status", "All with disability"]
+    },
+    "size": {
+      "field": "pct_num",
+      "type": "quantitative",
+      "title": "Percentage (%)",
+      "scale": {
+        "type": "linear",
+        "range": [100, 3000]
+      },
+      "legend": {"orient": "right"}
+    },
+    "color": {
+      "field": "group",
+      "type": "nominal",
+      "scale": {
+        "domain": ["Severe/Profound", "Other status", "All with disability"],
+        "range": ["#dc2626", "#f97316", "#3b82f6"]
+      },
+      "legend": {"title": "Severity Group"}
+    },
+    "tooltip": [
+      {"field": "source", "title": "Source"},
+      {"field": "group", "title": "Group"},
+      {"field": "pct_num", "title": "Percent (%)", "format": ".1f"}
+    ]
+  },
+
+  "title": {
+    "text": "Sources of Discrimination by Disability Severity",
+    "anchor": "start",
+    "fontSize": 16
+  },
+
+  "config": {
+    "view": {"stroke": null}
+  }
+}
