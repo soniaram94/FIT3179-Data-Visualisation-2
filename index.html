@@ -3,28 +3,56 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>FIT3179 — Australia Choropleth</title>
-  <link rel="stylesheet" href="css/styles.css" />
-  <!-- Vega libraries (official CDNs) -->
+  <title>Disability in Australia — Age Trends & Choropleth</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Vega libraries -->
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 </head>
-<body>
-  <header>
-    <h1>Experienced Discrimination ('000) — by Australian state</h1>
-    <p class="sub">Data: ABS (values in thousands). Map: Natural Earth.</p>
-  </header>
 
-  <main>
-    <div id="vis" class="card"></div>
-    <figcaption class="caption">
-      Note: A choropleth ideally uses **rates** (e.g., per 1,000 people). These are absolute counts.
-    </figcaption>
+<body>
+  <main class="container">
+    <h1>Disability in Australia</h1>
+    <p class="sub">Interactive visuals (ABS SDAC). Use the legend on the chart to select/deselect age groups.</p>
+
+    <!-- AGE CHART -->
+    <h2>Persons with disability by age group (2003–2022)</h2>
+    <div id="age" class="card"></div>
+
+    <!-- dummy text under chart -->
+    <div class="note">
+      <h3>About this chart </h3>
+      <p>
+        This chart shows the number of people (in thousands) who had a disability at the time of each survey,
+        grouped by current age. Click legend items to compare multiple age groups.
+      </p>
+      <p>
+        text explaning here:
+      </p>
+    </div>
+
+    <!-- MAP + side copy -->
+    <h2>Experienced disability discrimination by state</h2>
+    <div class="grid">
+      <div id="map" class="card"></div>
+      <aside class="card" style="border-style:dashed">
+        <h3>Notes & context (dummy)</h3>
+        <ul>
+          <li>Values are counts (’000), not rates.</li>
+          <li>Differences reflect both prevalence and population size.</li>
+          <li>more text.</li>
+        </ul>
+      </aside>
+    </div>
   </main>
 
   <script>
-    vegaEmbed("#vis", "vis/map.json", {actions: false}).catch(console.error);
+    // NOTE: Your folder is "vis" (not "viz"); keep these paths as you have them.
+    vegaEmbed("#age", "vis/age_area.json", { actions:false }).catch(console.error);
+    vegaEmbed("#map", "vis/map.json", { actions:false }).catch(console.error);
   </script>
 </body>
 </html>
