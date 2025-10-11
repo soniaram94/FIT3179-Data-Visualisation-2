@@ -1,7 +1,7 @@
-source	severe_pct	other_pct	all_pct
-Employer	16.9	29.5	24.4
-Work colleagues	13.1	20.1	18.1
-Family or friends	20.8	22.2	22
-Providers of goods or services	41.2	26.1	32.2
-Strangers in the street	20.6	15.5	17.4
-Other sources	29.5	26.5	28.7
+source,severe_pct,other_pct,all_pct
+Employer,16.9,29.5,24.4
+Work colleagues,13.1,20.1,18.1
+Family or friends,20.8,22.2,22
+Providers of goods or services,41.2,26.1,32.2
+Strangers in the street,20.6,15.5,17.4
+Other sources,29.5,26.5,28.7
