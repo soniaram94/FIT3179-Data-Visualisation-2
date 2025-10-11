@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>FIT3179 — Australia Choropleth</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="css/styles.css" />
   <!-- Vega libraries (official CDNs) -->
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
@@ -24,7 +24,7 @@
   </main>
 
   <script>
-    vegaEmbed("#vis", "map.json", {actions: false}).catch(console.error);
+    vegaEmbed("#vis", "vis/map.json", {actions: false}).catch(console.error);
   </script>
 </body>
 </html>

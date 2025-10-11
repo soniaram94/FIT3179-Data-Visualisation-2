@@ -11,7 +11,7 @@
   "layer": [
     {
       "data": {
-        "url": "https://raw.githubusercontent.com/soniaram94/FIT3179-Data-Visualisation-2/refs/heads/main/australia_states.json",
+        "url": "https://raw.githubusercontent.com/soniaram94/FIT3179-Data-Visualisation-2/refs/heads/main/data/australia_states.json",
         "format": {"type": "topojson", "feature": "ne_50m_admin_1_states_provinces"}
       },
       "transform": [
@@ -19,7 +19,7 @@
           "lookup": "properties.name",
           "from": {
             "data": {
-              "url": "https://raw.githubusercontent.com/soniaram94/FIT3179-Data-Visualisation-2/refs/heads/main/disability%20_discrimination.csv"
+              "url": "https://raw.githubusercontent.com/soniaram94/FIT3179-Data-Visualisation-2/refs/heads/main/data/disability%20_discrimination.csv"
             },
             "key": "State",
             "fields": ["Discrimination_thousands"]
