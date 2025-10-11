@@ -1,0 +1,64 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Sources of discrimination — value-annotated heatmap.",
+  "width": "container",
+  "height": {"step": 38},
+  "autosize": {"type": "fit-x", "contains": "padding"},
+
+  "data": {
+    "url": "https://raw.githubusercontent.com/soniaram94/FIT3179-Data-Visualisation-2/main/data/discrimination_sources.csv",
+    "format": {"type": "csv"}
+  },
+
+  "transform": [
+    {"fold": ["severe_pct", "other_pct", "all_pct"], "as": ["group_key", "pct"]},
+    {
+      "calculate": "datum.group_key === 'severe_pct' ? 'Severe/Profound' : (datum.group_key === 'other_pct' ? 'Other status' : 'All with disability')",
+      "as": "group"
+    }
+  ],
+
+  "layer": [
+    {
+      "mark": {"type": "rect"},
+      "encoding": {
+        "y": {"field": "source", "type": "nominal", "axis": {"title": null, "labelLimit": 360}},
+        "x": {
+          "field": "group",
+          "type": "nominal",
+          "axis": {"title": null, "labelAngle": 0}
+        },
+        "color": {
+          "field": "pct",
+          "type": "quantitative",
+          "title": "Percent (%)",
+          "scale": {"scheme": "tealblues"},
+          "legend": {"orient": "right"}
+        },
+        "tooltip": [
+          {"field": "source", "title": "Source"},
+          {"field": "group", "title": "Group"},
+          {"field": "pct", "title": "Percent", "format": ".1f"}
+        ]
+      }
+    },
+    {
+      "mark": {"type": "text", "baseline": "middle", "fontSize": 12},
+      "encoding": {
+        "y": {"field": "source", "type": "nominal"},
+        "x": {"field": "group", "type": "nominal"},
+        "text": {"field": "pct", "type": "quantitative", "format": ".1f"},
+        "color": {
+          "condition": {"test": "datum.pct < 28", "value": "black"},
+          "value": "white"
+        }
+      }
+    }
+  ],
+
+  "config": {
+    "view": {"stroke": null},
+    "axis": {"labelFontSize": 13},
+    "legend": {"labelFontSize": 12, "titleFontSize": 13}
+  }
+}

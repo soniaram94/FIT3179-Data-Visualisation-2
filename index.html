@@ -22,7 +22,6 @@
     <h2>Persons with disability by age group (2003–2022)</h2>
     <div id="age" class="card"></div>
 
-    <!-- dummy text under chart -->
     <div class="note">
       <h3>About this chart </h3>
       <p>
@@ -34,12 +33,26 @@
       </p>
     </div>
 
+    <!-- STACKED HORIZONTAL BARS + side copy -->
+    <h2>Assistance needed for core activities (by severity)</h2>
+  <div class="grid--wide">
+    <div id="activity" class="card"></div>
+    <aside class="card">
+      <h3>text here</h3>
+      <ul>
+        <li>Each bar = an activity; segments = Profound/Severe/Moderate.</li>
+        <li>Counts shown are in thousands (’000).</li>
+        <li>Use the legend to focus on specific levels.</li>
+      </ul>
+    </aside>
+  </div>
+
     <!-- MAP + side copy -->
     <h2>Experienced disability discrimination by state</h2>
     <div class="grid">
       <div id="map" class="card"></div>
-      <aside class="card" style="border-style:dashed">
-        <h3>Notes & context (dummy)</h3>
+      <aside class="card">
+        <h3>text</h3>
         <ul>
           <li>Values are counts (’000), not rates.</li>
           <li>Differences reflect both prevalence and population size.</li>
@@ -47,11 +60,11 @@
         </ul>
       </aside>
     </div>
-  </main>
 
   <script>
-    // NOTE: Your folder is "vis" (not "viz"); keep these paths as you have them.
+    const opts = { actions:false, renderer:"svg" };  
     vegaEmbed("#age", "vis/age_area.json", { actions:false }).catch(console.error);
+    vegaEmbed("#activity", "vis/activity_bars.json", {actions:false}).catch(console.error);
     vegaEmbed("#map", "vis/map.json", { actions:false }).catch(console.error);
   </script>
 </body>

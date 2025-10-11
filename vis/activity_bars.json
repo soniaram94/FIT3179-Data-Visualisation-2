@@ -1,0 +1,59 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Assistance by activity — stacked horizontal bars.",
+  "width": "container",
+  "height": {"step": 40},
+  "autosize": { "type": "fit-x", "contains": "padding" },
+
+  "data": {
+    "url": "https://raw.githubusercontent.com/soniaram94/FIT3179-Data-Visualisation-2/main/data/assistance_by_activity_core.csv"
+  },
+
+  "mark": {"type": "bar"},
+
+  "encoding": {
+    "y": {
+      "field": "activity",
+      "type": "nominal",
+      "sort": "-x",
+      "axis": {"title": null, "labelLimit": 340}
+    },
+
+    "x": {
+      "field": "estimate_k",
+      "type": "quantitative",
+      "stack": "zero",
+      "axis": {"title": "People ('000)"}
+    },
+
+    "color": {
+      "field": "category",
+      "type": "nominal",
+      "scale": { 
+        "domain": ["Profound", "Severe", "Moderate"],
+        "range": ["#2fbdc2", "#2bd6a0", "#26dc7e"]
+      },
+      "legend": { "title": "Disability level" }
+    },
+
+    "order": { 
+      "field": "category", 
+      "type": "nominal",
+      "sort": ["Profound", "Severe", "Moderate"]
+    },
+
+    "tooltip": [
+      { "field": "activity", "title": "Activity" },
+      { "field": "category", "title": "Level" },
+      { "field": "estimate_k", "title": "People ('000)", "format": ",.1f" }
+    ]
+  },
+
+    
+    "config": {
+        "view": { "stroke": null },
+        "axis": { "labelFontSize": 13, "titleFontSize": 14, "labelLimit": 520 },
+        "legend": { "labelFontSize": 13, "titleFontSize": 14, "symbolSize": 140 }
+    }
+
+}
