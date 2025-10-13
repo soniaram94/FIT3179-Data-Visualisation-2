@@ -2,11 +2,11 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "Experienced Discrimination ('000) — by Australian state",
   "width": "container",
-  "height": 600,
+  "height": 650,
   "projection": {
     "type": "mercator",
     "center": [133, -28],
-    "scale": 800
+    "scale": 1000
   },
   "layer": [
     {

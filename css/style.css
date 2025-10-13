@@ -1,45 +1,138 @@
-:root { color-scheme: light; }
-* { box-sizing: border-box; }
-
-html, body { background:#fff; color:#111; }
-body {
+:root {
+  color-scheme: light;
+}
+* {
+  box-sizing: border-box;
+}
+html, body {
+  background: #d2f8ff;
+  color: #111;
   margin: 0;
+  padding: 0;
+}
+body {
+  margin: 5;
   font-family: ui-sans-serif, system-ui, Segoe UI, Roboto, "Helvetica Neue", Arial;
   line-height: 1.5;
 }
 
-/* Make visuals bigger */
-.container{
-  max-width: 1280px;   /* wider page so charts aren’t squeezed */
-  margin: 0 auto;
-  padding: 24px 20px;
+/* Much wider container */
+.container {
+  max-width: 1800px !important;   /* even wider */
+  width: 92% !important;           /* uses most of the screen */
+  margin: 0 auto !important;
+  padding: 20px 40px !important;
 }
 
 /* Headings */
-h1 { margin: 16px 0 6px; font-weight: 700; }
-h2 { margin: 24px 0 10px; }
-.sub { color:#555; margin:0 0 18px; }
+h1 {
+  margin: 20px 0 8px;
+  font-weight: 900;
+  font-size: 6rem;
+}
+h2 {
+  margin: 40px 0 20px;
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.5rem;
+  margin: 12px 0 8px;
+}
+.sub {
+  color: #000a57;
+  margin: 0 0 30px;
+  font-size: 2rem;
+}
 
-/* Cards: remove borders & rounding */
-.card{
-  background:#fff;
+/* Cards with much more height */
+.card {
+  background: #b1deff;
   border: none;
   border-radius: 0;
-  padding: 8px;
+  padding: 16px;
   box-shadow: none;
+  min-height: 550px !important;   /* taller cards */
 }
 
-/* Text blocks */
-.note { max-width: 100%; color:#333; margin: 10px 0 24px; }
-
-/* Two-column grids */
-.grid{ display:grid; grid-template-columns: 2fr 1fr; gap:16px; align-items:start; }
-.grid--wide{ display:grid; grid-template-columns: 3fr 1fr; gap:16px; align-items:start; }
-@media (max-width: 900px){
-  .grid, .grid--wide{ grid-template-columns: 1fr; }
+/* Text blocks - BIGGER */
+.note {
+  max-width: 100%;
+  color: #333;
+  margin: 20px 0 40px;
+  line-height: 1.7;
+  font-size: 1.05rem;        /* add this line */
 }
 
-/* Make embedded Vega charts fill container crisply */
-.vega-embed, .vega-embed * { max-width: 100%; }
-.vega-embed svg { width: 100%; height: auto; }     /* SVG stays sharp at any zoom */
-.vega-embed canvas { image-rendering: auto; }      /* fallback if canvas is ever used */
+/* Two-column grid */
+.grid {
+  display: grid;
+  grid-template-columns: 1.4fr 0.6fr;
+  gap: 35px;
+  align-items: start;
+  justify-items: stretch;
+  margin-bottom: 30px;
+}
+
+/* Wider layout for stacked bars */
+.grid--wide {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  gap: 30px;
+  align-items: start;
+  margin-bottom: 30px;
+}
+
+/* Side content styling */
+aside.card {
+  min-height: auto !important;
+  padding: 24px;
+  background: #f8f9fa;
+}
+aside ul {
+  margin: 10px 0;
+  padding-left: 20px;
+  line-height: 1.8;
+}
+aside li {
+  margin: 10px 0;
+}
+
+/* Responsive stacking */
+@media (max-width: 1100px) {
+  .grid, .grid--wide {
+    grid-template-columns: 1fr;
+  }
+  .container {
+    width: 96% !important;
+    padding: 16px 20px !important;
+  }
+}
+
+/* Make Vega charts much larger */
+.vega-embed {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-height: 500px !important;   /* taller charts */
+}
+.vega-embed > * {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+.vega-embed svg {
+  width: 100% !important;
+  height: auto !important;
+  min-height: 480px !important;
+  display: block;
+}
+.vega-embed canvas {
+  image-rendering: auto;
+}
+
+/* Chart note styling */
+.chart-note {
+  font-size: 1.2rem;
+  color: #000000;
+  line-height: 1.6;
+  margin-top: 12px;
+  padding: 0 8px;
+}

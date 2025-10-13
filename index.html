@@ -18,69 +18,71 @@
     <h1>Disability in Australia</h1>
     <p class="sub">Interactive visuals (ABS SDAC). Use the legend on the chart to select/deselect age groups.</p>
 
-    <!-- AGE CHART -->
+    \<!-- AGE CHART + BUBBLE side by side -->
     <h2>Persons with disability by age group (2003–2022)</h2>
-    <div id="age" class="card"></div>
+
+    <div class="grid">
+      <div>
+        <div id="age" class="card"></div>
+      </div>
+      <div>
+        <h2 style="margin-top: 0;">Sources of discrimination</h2>
+        <div id="bubble" class="card"></div>
+        <p class="chart-note">The bubble chart summarizes sources of discrimination experienced by people with disability. Bubble size represents the percentage of people reporting each source within their severity group.</p>
+      </div>
+    </div>
 
     <div class="note">
-      <h3>About this chart</h3>
+      <h3>About these charts</h3>
       <p>
-        This chart shows the number of people (in thousands) who had a disability at the time of each survey,
-        grouped by current age. Click legend items to compare multiple age groups.
+        The line chart shows total people ('000) with disability by age group over time (ABS SDAC).
+        The bubble chart summarises sources of discrimination; bubble size encodes the percentage within
+        each severity group.
       </p>
       <p>
-        text explaining here:
+        relate to ABS data and analysis and comapre the charts and link to the examples and compare the trends
       </p>
     </div>
+    
 
     <!-- STACKED HORIZONTAL BARS + side copy -->
     <h2>Assistance needed for core activities (by severity)</h2>
-    <div class="grid--wide">
-      <div id="activity" class="card"></div>
-      <aside class="card">
-        <h3>text here</h3>
-        <ul>
-          <li>Each bar = an activity; segments = Profound/Severe/Moderate.</li>
-          <li>Counts shown are in thousands ('000).</li>
-          <li>Use the legend to focus on specific levels.</li>
-        </ul>
-      </aside>
-    </div>
+  <div class="grid--wide">
+    <div id="activity" class="card"></div>
+    <aside class="card">
+      <h3>text here</h3>
+      <ul>
+        <li>Each bar = an activity; segments = Profound/Severe/Moderate.</li>
+        <li>Counts shown are in thousands (’000).</li>
+        <li>Use the legend to focus on specific levels.</li>
+        <li>source data and references from the abs site and give mroe info</li>
+        <li>mention what each characterisitic means for the 3 features of the stacedk chart</li>
+      </ul>
+    </aside>
+  </div>
 
-    <!-- BUBBLE CHART + MAP side by side -->
-    <h2>Discrimination by source and state</h2>
+    <!-- MAP + side copy -->
+    <h2>Experienced disability discrimination by state</h2>
     <div class="grid">
-      <div id="bubble" class="card"></div>
       <div id="map" class="card"></div>
-    </div>
-
-    <div class="grid">
       <aside class="card">
-        <h3>Sources of discrimination</h3>
+        <h3>text</h3>
         <ul>
-          <li>Bubble size represents the percentage of discrimination experienced.</li>
-          <li>Colors distinguish severity groups: Severe/Profound (red), Other status (orange), All with disability (blue).</li>
-          <li>Providers of goods or services show the highest rates for severe disabilities.</li>
-        </ul>
-      </aside>
-      <aside class="card">
-        <h3>Geographic distribution</h3>
-        <ul>
-          <li>Values are counts ('000), not rates.</li>
+          <li>Values are counts (’000), not rates.</li>
           <li>Differences reflect both prevalence and population size.</li>
+          <li>analysis on the numbers for each state</li>
+          <li>common scenarios or situation, maybe realtes it to the abs againa nd include another chart side by side to comapre and analyse</li>
           <li>more text.</li>
         </ul>
       </aside>
     </div>
 
-  </main>
-
   <script>
-    const opts = { actions: false, renderer: "svg" };
-    vegaEmbed("#age", "vis/age_area.json", opts).catch(console.error);
-    vegaEmbed("#activity", "vis/activity_bars.json", opts).catch(console.error);
-    vegaEmbed("#bubble", "vis/discrimination_bubble.json", opts).catch(console.error);
-    vegaEmbed("#map", "vis/map.json", opts).catch(console.error);
+    const opts = { actions:false, renderer:"svg" };  
+    vegaEmbed("#age", "vis/age_area.json", { actions:false }).catch(console.error);
+    vegaEmbed("#bubble", "vis/discrimination_bubble.json", { actions:false }).catch(console.error);
+    vegaEmbed("#activity", "vis/activity_bars.json", {actions:false}).catch(console.error);
+    vegaEmbed("#map", "vis/map.json", { actions:false }).catch(console.error);
   </script>
 </body>
 </html>

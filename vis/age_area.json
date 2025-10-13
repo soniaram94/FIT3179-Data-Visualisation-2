@@ -71,8 +71,8 @@
   "title": { 
     "text": "Persons with disability by age group (ABS 2003–2022)", 
     "anchor": "start",
-    "fontSize": 14
+    "fontSize": 20
   },
-  "width": 760,
-  "height": 360
+  "width": "container",
+  "height": 500
 }

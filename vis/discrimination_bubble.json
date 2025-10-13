@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Sources of discrimination — bubble chart.",
-  "width": 700,
-  "height": 450,
+  "width": "container",
+  "height": 500,
 
   "data": {
     "url": "https://raw.githubusercontent.com/soniaram94/FIT3179-Data-Visualisation-2/main/data/discrimination_sources.csv"
@@ -72,7 +72,7 @@
   "title": {
     "text": "Sources of Discrimination by Disability Severity",
     "anchor": "start",
-    "fontSize": 16
+    "fontSize": 14
   },
 
   "config": {
