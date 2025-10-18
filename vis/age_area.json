@@ -74,5 +74,5 @@
     "fontSize": 20
   },
   "width": "container",
-  "height": 500
+  "height": "container"
 }

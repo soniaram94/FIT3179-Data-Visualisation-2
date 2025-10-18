@@ -18,19 +18,19 @@
     <h1>Disability in Australia</h1>
     <p class="sub">Interactive visuals (ABS SDAC). Use the legend on the chart to select/deselect age groups.</p>
 
-    \<!-- AGE CHART + BUBBLE side by side -->
+    <!-- AGE CHART + BUBBLE side by side -->
+    <div class="grid equal">
+  <div class="card">
     <h2>Persons with disability by age group (2003–2022)</h2>
+    <div id="age" class="chart"></div>         <!-- or class="chart fixed-420" -->
+  </div>
+  <div class="card">
+    <h2>Sources of discrimination</h2>
+    <div id="bubble" class="chart"></div>      <!-- or class="chart fixed-420" -->
+    <p class="muted">…</p>
+  </div>
+</div>
 
-    <div class="grid">
-      <div>
-        <div id="age" class="card"></div>
-      </div>
-      <div>
-        <h2 style="margin-top: 0;">Sources of discrimination</h2>
-        <div id="bubble" class="card"></div>
-        <p class="chart-note">The bubble chart summarizes sources of discrimination experienced by people with disability. Bubble size represents the percentage of people reporting each source within their severity group.</p>
-      </div>
-    </div>
 
     <div class="note">
       <h3>About these charts</h3>

@@ -72,8 +72,9 @@
   "title": {
     "text": "Sources of Discrimination by Disability Severity",
     "anchor": "start",
-    "fontSize": 14
+    "fontSize": 20
   },
+  
 
   "config": {
     "view": {"stroke": null}
