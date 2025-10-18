@@ -52,8 +52,8 @@
     
     "config": {
         "view": { "stroke": null },
-        "axis": { "labelFontSize": 10, "titleFontSize": 17, "labelLimit": 520 },
-        "legend": { "labelFontSize": 10, "titleFontSize": 17, "symbolSize": 140 }
+        "axis": { "labelFontSize": 20, "titleFontSize": 17, "labelLimit": 520 },
+        "legend": { "labelFontSize": 20, "titleFontSize": 17, "symbolSize": 140 }
     }
 
 }

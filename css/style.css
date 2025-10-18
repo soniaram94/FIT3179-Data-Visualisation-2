@@ -93,6 +93,7 @@ h3{ margin:.2rem 0 10px; font-weight:700; font-size:18px; }
   border-radius:var(--radius);
   box-shadow:var(--shadow);
   padding:18px;
+  margin-bottom: 40px; /* ADD THIS - creates space below each card */
 }
 aside.card{ padding:18px; }
 aside ul{ margin:10px 0; padding-left:22px; line-height:1.7; }
@@ -104,12 +105,27 @@ aside li{ margin:8px 0; }
   border:1px solid #e2e8f0;
   border-radius:14px;
   overflow:hidden;
+  height: 100%; /* ADD THIS - makes chart fill the card */
+  min-height: 500px; /* ADD THIS - ensures minimum height */
 }
 
+
 /* Make Vega containers fluid without forcing huge min-heights */
-.vega-embed{ width:100%; }
-.vega-embed > *{ width:100%; max-width:100%; }
-.vega-embed svg{ width:100%; height:100%; display:block; }
+/* Make Vega containers fluid */
+.vega-embed{ 
+  width:100%; 
+  height:100%; /* ADD THIS */
+}
+.vega-embed > *{ 
+  width:100%; 
+  height:100%; /* ADD THIS */
+  max-width:100%; 
+}
+.vega-embed svg{ 
+  width:100%; 
+  height:100%; 
+  display:block; 
+}
 
 /* ========== Notes/paragraph blocks ========== */
 .note, .card p{ color:var(--muted); }
@@ -123,17 +139,23 @@ aside li{ margin:8px 0; }
 
 .grid.equal{
   display:grid;
-  grid-template-columns: 800px 800px;
-  gap: var(--gap);
+  grid-template-columns: 1000px 1000px;
+  gap: 32px;
   justify-content:center;
   align-items:start;             /* no vertical stretching */
 }
 
-/* Do NOT set a height on .card; make it block */
-.grid.equal .card{ height:auto; display:block; }
+/* Cards should stretch vertically */
+.grid.equal .card{ 
+  height:auto; 
+  display:flex; /* CHANGE to flex */
+  flex-direction:column; /* CHANGE - stack children vertically */
+}
 
-/* Give each chart a real height so Vega can use it */
-.grid.equal .chart{ height: 600px; }  /* <- choose the height you want */
+.grid.equal .chart{ 
+  flex:1; /* CHANGE - makes chart grow */
+  min-height: 800px; /* keeps minimum height */
+}
 
 /* Mobile: stack the two cards */
 @media (max-width:980px){
@@ -143,7 +165,7 @@ aside li{ margin:8px 0; }
 
 /* --- WHITE STRIP (page wrapper) --- */
 .page{
-  max-width: 1700px;                 /* width of the white strip */
+  max-width: 2200px;                 /* width of the white strip */
   margin: -5px auto 64px;           /* pulls strip slightly into the hero */
   background: #fff;                  /* white strip */
   border-radius: 18px;
@@ -161,5 +183,16 @@ aside li{ margin:8px 0; }
 
 /* Ensure Vega charts fill the .chart box exactly */
 .vega-embed svg { width: 100%; height: 100%; display: block; }
+
+/* legend for the area chart*/
+
+.legend-filter{
+  display: flex;
+  justify-content: flex-end; /* push to the right (under legend) */
+  gap: 8px;
+  margin-top: 6px;           /* small spacing below chart frame */
+  margin-right: 12px;        /* align with chart padding */
+  font: 20px/1.2 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+}
 
 

@@ -1,63 +1,83 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Persons with disability by age group (ABS 2003–2022). Select multiple age groups.",
-  "data": { 
-    "url": "https://raw.githubusercontent.com/soniaram94/FIT3179-Data-Visualisation-2/refs/heads/main/data/disability_age_years.csv" 
+  "description": "Persons with disability (ABS 2003–2022): Females vs Males with filter and soft fills + thick lines.",
+  "data": {
+    "url": "https://raw.githubusercontent.com/soniaram94/FIT3179-Data-Visualisation-2/refs/heads/main/data/disability_totals_with_all.csv"
   },
-
-  "transform": [
-    { "calculate": "toNumber(datum.Year)", "as": "YearNum" }
-  ],
-
   
-
+  "transform": [
+    { "calculate": "toNumber(datum.Year)", "as": "YearNum" },
+    { "filter": "datum.Gender != 'Total'" },
+    { "filter": "showWhich == 'Both' || datum.Gender == showWhich" }
+  ],
+  
   "params": [
     {
-      "name": "ageFilter",
-      "select": {"type": "point", "fields": ["Age"]},
-      "bind": "legend"
+      "name": "showWhich",
+      "value": "Both",
+      "bind": {
+        "element": "#gender",
+        "input": "select",
+        "options": ["Both", "Females", "Males"],
+        "labels": ["Both", "Females", "Males"],
+        "name": "Show: "
+      }
+    }
+  ],
+  
+  "layer": [
+    {
+      "mark": { "type": "area", "interpolate": "monotone", "fillOpacity": 0.10 },
+      "encoding": {
+        "x": { "field": "YearNum", "type": "quantitative", "axis": { "format": "d", "title": "Year" } },
+        "y": {
+          "field": "Value",
+          "type": "quantitative",
+          "title": "Persons with disability ('000)",
+          "stack": null,
+          "scale": { "zero": true }
+        },
+        "color": {
+          "field": "Gender",
+          "type": "nominal",
+          "title": "Gender",
+          "scale": {
+            "domain": ["Females", "Males"],
+            "range": ["#3DBAA2", "#0077B6"]
+          },
+          "legend": { "orient": "right", "labelLimit": 120 }
+        },
+        "tooltip": [
+          { "field": "Gender", "type": "nominal", "title": "Series" },
+          { "field": "YearNum", "type": "quantitative", "title": "Year", "format": "d" },
+          { "field": "Value", "type": "quantitative", "title": "Estimate ('000)", "format": ",.1f" }
+        ]
+      }
+    },
+    {
+      "mark": { "type": "line", "interpolate": "monotone", "strokeWidth": 3 },
+      "encoding": {
+        "x": { "field": "YearNum", "type": "quantitative" },
+        "y": { "field": "Value", "type": "quantitative" },
+        "color": {
+          "field": "Gender",
+          "type": "nominal",
+          "scale": {
+            "domain": ["Females", "Males"],
+            "range": ["#3DBAA2", "#0077B6"]
+          },
+          "legend": null
+        }
+      }
     }
   ],
 
-  "mark": {
-  "type": "area",
-  "interpolate": "monotone",
-  "opacity": 0.5,
-  "line": true,
-  "strokeWidth": 1.5
-},
-"encoding": {
-  "x": { 
-    "field": "YearNum", 
-    "type": "quantitative", 
-    "axis": {"format": "d", "title": "Year"}
-  },
-  "y": {
-    "field": "Estimate_k", 
-    "type": "quantitative",
-    "title": "Persons with disability ('000)",
-    "scale": {"zero": false}
-  },
-  "color": {
-    "field": "Age",
-    "type": "nominal",
-    "title": "Age Group",
-    "legend": {"orient": "right", "labelLimit": 120}
-  },
-  "opacity": {
-    "condition": {"param": "ageFilter", "value": 0.9},
-    "value": 0.2
-  },
-  "tooltip": [
-    {"field": "Age", "type": "nominal", "title": "Age group"},
-    {"field": "YearNum", "type": "quantitative", "title": "Year", "format": "d"},
-    {"field": "Estimate_k", "type": "quantitative", "title": "Estimate ('000)", "format": ",.1f"}
-  ]
-},
-  "title": { 
-    "anchor": "start",
-    "fontSize": 20
-  },
+  "config": {
+        "view": { "stroke": null },
+        "axis": { "labelFontSize": 15, "titleFontSize": 17, "labelLimit": 520 },
+        "legend": { "labelFontSize": 15, "titleFontSize": 17, "symbolSize": 140 }
+    },
+  
   "width": "container",
   "height": "container"
 }

@@ -60,7 +60,7 @@
       "type": "nominal",
       "scale": {
         "domain": ["Severe/Profound", "Other status", "All with disability"],
-        "range": ["#dc2626", "#f97316", "#3b82f6"]
+        "range": ["#18aad6", "#1c9984", "#3eab52"]
       },
       "legend": {"title": "Severity Group"}
     },
@@ -71,13 +71,12 @@
     ]
   },
 
-  "title": {
-    "anchor": "start",
-    "fontSize": 20
-  },
+  "config": {
+        "view": { "stroke": null },
+        "axis": { "labelFontSize": 14, "titleFontSize": 17, "labelLimit": 520 },
+        "legend": { "labelFontSize": 14, "titleFontSize": 17, "symbolSize": 140 }
+    }
   
 
-  "config": {
-    "view": {"stroke": null}
-  }
+
 }
