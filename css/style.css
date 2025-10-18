@@ -1,49 +1,68 @@
 /* ========== Design tokens ========== */
 :root{
   --bg:#eaf0f5;                /* page background */
-  --hero-start:#14ac81;        /* banner gradient */
-  --hero-end:#2b7478;
+  --hero-start:#99e6d0;        /* banner gradient */
+  --hero-end:#5ac1a4;
   --card:#ffffff;              /* card background */
   --ink:#0f172a;               /* main text */
   --muted:#475569;             /* secondary text */
   --radius:18px;
   --shadow:0 6px 24px rgba(15,23,42,.08);
-  --gap:22px;
 }
 
 /* ========== Base ========== */
 *{ box-sizing:border-box; }
-html,body{
-  margin:0; padding:0;
-  background:var(--bg);
-  color:var(--ink);
+html, body {
+  margin: 0;
+  padding: 0;
+  color: var(--ink);
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
-  line-height:1.55;
-  font-size:16px;
+  line-height: 1.55;
+  font-size: 25px;
+
+  /* === Background image outside white strip === */
+  background: 
+    linear-gradient(rgba(555,255,255,0.75), rgba(555,255,255,0.75)), /* soft overlay */
+    url("park.png");
+  background-size: cover;        /* stretch to fill screen */
+  background-position: center;
+  background-attachment: fixed;  /* makes it stay still while scrolling */
+  background-repeat: no-repeat;
 }
+
 
 /* ========== Hero banner (top title strip) ========== */
 .hero{
   background:linear-gradient(180deg,var(--hero-start),var(--hero-end));
-  color:#6ec0e3;
+  color:#fff;
   box-shadow:var(--shadow);
+  padding:70px 20px 80px;          /* slightly taller hero */
+  text-align:center;               /* center content */
 }
+
 .hero__inner{
   max-width:1200px;
   margin:0 auto;
-  padding:56px 18px;
 }
+
 .hero h1{
-  margin:0 0 8px;
-  font-weight:800;
-  font-size:clamp(36px,5vw,56px);
-  letter-spacing:.3px;
+  margin:0 0 12px;
+  font-weight:900;                 /* bold & valid value */
+  font-size:clamp(50px,7vw,100px);  /* larger title */
+  letter-spacing:.4px;
+  color:#09253c;
+  text-shadow:0 2px 6px rgba(0,0,0,0.15);
 }
-.hero p{
-  margin:0;
-  font-size:clamp(14px,1.6vw,18px);
-  opacity:.92;
+
+.hero p,
+.hero .sub{
+  margin:0 auto;
+  max-width:900px;
+  font-size:clamp(25px,4vw,20px);
+  line-height:1.55;
+  color:#09253c;
 }
+
 
 /* ========== Content wrapper ========== */
 .container, .wrap{
@@ -54,7 +73,7 @@ html,body{
 }
 
 /* ========== Type scale ========== */
-h1{ margin:20px 0 12px; font-weight:800; font-size:clamp(32px,4.6vw,44px); }
+h1{ margin:0 0 8px; font-weight:800; font-size:clamp(42px,5vw,68px);letter-spacing: .3px; }
 h2{ margin:.2rem 0 12px; font-weight:800; font-size:clamp(20px,2.2vw,28px); }
 h3{ margin:.2rem 0 10px; font-weight:700; font-size:18px; }
 .sub{ color:#dbeafe; }               /* only used in hero now */
@@ -90,7 +109,7 @@ aside li{ margin:8px 0; }
 /* Make Vega containers fluid without forcing huge min-heights */
 .vega-embed{ width:100%; }
 .vega-embed > *{ width:100%; max-width:100%; }
-.vega-embed svg{ width:100%; height:auto; display:block; }
+.vega-embed svg{ width:100%; height:100%; display:block; }
 
 /* ========== Notes/paragraph blocks ========== */
 .note, .card p{ color:var(--muted); }
@@ -102,40 +121,45 @@ aside li{ margin:8px 0; }
   .container, .wrap{ padding:26px 16px 56px; }
 }
 
-/* Top row: YOU pick exact widths; both cards top-aligned */
 .grid.equal{
   display:grid;
-  grid-template-columns: 800px 800px;  /* <-- change these to any widths you want */
+  grid-template-columns: 800px 800px;
   gap: var(--gap);
-  justify-content:center;              /* center the pair in the page */
-  align-items:start;                   /* top align (no auto stretching) */
+  justify-content:center;
+  align-items:start;             /* no vertical stretching */
 }
 
-/* Optional: page max width */
-.wrap{ max-width: 1280px; }            /* widen/narrow the whole page if you want */
+/* Do NOT set a height on .card; make it block */
+.grid.equal .card{ height:auto; display:block; }
 
-/* Keep card headers uniform so headings don’t cause offsets */
-.card h2{ margin: 0 0 10px; line-height:1.2; }
+/* Give each chart a real height so Vega can use it */
+.grid.equal .chart{ height: 600px; }  /* <- choose the height you want */
 
-/* Chart container height — if you want to set it in CSS instead of JSON */
-.chart.fixed-420{ height: 520px; }     /* utility class if you prefer CSS sizing */
-
-
-/* Make cards fill the grid cell height and charts expand inside */
-.grid.equal .card {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
+/* Mobile: stack the two cards */
+@media (max-width:980px){
+  .grid.equal{ grid-template-columns: 1fr; }   /* was 2fr */
 }
 
-/* Let the chart take remaining space to match heights perfectly */
-.grid.equal .chart {
-  flex: 1 1 auto;
-  min-height: 420px;                 /* shared chart height */
+
+/* --- WHITE STRIP (page wrapper) --- */
+.page{
+  max-width: 1700px;                 /* width of the white strip */
+  margin: -5px auto 64px;           /* pulls strip slightly into the hero */
+  background: #fff;                  /* white strip */
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(15,23,42,.10);
 }
 
-/* On small screens, stack but keep sizing sane */
-@media (max-width: 980px){
-  .grid.equal { grid-template-columns: 1fr; }
-  .grid.equal .chart { min-height: 360px; }
+/* Inner padding for the white strip */
+.page__inner{
+  padding: 32px 24px 48px;
 }
+
+/* Make sure headings/captions don't add stray gaps inside cards */
+.card > *:first-child { margin-top: 0; }
+.card > *:last-child  { margin-bottom: 0; }
+
+/* Ensure Vega charts fill the .chart box exactly */
+.vega-embed svg { width: 100%; height: 100%; display: block; }
+
+

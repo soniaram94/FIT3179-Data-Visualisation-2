@@ -20,56 +20,41 @@
   ],
 
   "mark": {
-    "type": "line",
-    "point": true,
-    "strokeWidth": 2.5
+  "type": "area",
+  "interpolate": "monotone",
+  "opacity": 0.5,
+  "line": true,
+  "strokeWidth": 1.5
+},
+"encoding": {
+  "x": { 
+    "field": "YearNum", 
+    "type": "quantitative", 
+    "axis": {"format": "d", "title": "Year"}
   },
-
-  "encoding": {
-    "x": { 
-      "field": "YearNum", 
-      "type": "quantitative", 
-      "axis": { "format": "d", "title": "Year" }
-    },
-    "y": {
-      "field": "Estimate_k", 
-      "type": "quantitative",
-      "title": "Persons with disability ('000)",
-      "scale": { "zero": false }
-    },
-    "color": {
-      "field": "Age",
-      "type": "nominal",
-      "title": "Age Group",
-      "scale": {
-        "domain": [
-          "0-4", "5-14", "15-24", "25-34", "35-44", "45-54", "55-59",
-          "60-64", "65-69", "70-74", "75-79", "80-84", "85-89", "90 and over"
-        ],
-        "range": [
-          "#55ff00", "#a0e632", "#6fdc8c", "#2dd4bf", "#06b6d4",
-          "#0ea5e9", "#3b82f6", "#2563eb", "#1d4ed8", "#6366f1",
-          "#8b5cf6", "#a855f7", "#a423ba", "#d8b4fe"
-        ]
-      },
-      "legend": {
-        "orient": "right",
-        "labelLimit": 120
-      }
-    },
-    "opacity": {
-      "condition": {"param": "ageFilter", "value": 1},
-      "value": 0.15
-    },
-    "tooltip": [
-      { "field": "Age", "type": "nominal", "title": "Age group" },
-      { "field": "YearNum", "type": "quantitative", "title": "Year", "format": "d" },
-      { "field": "Estimate_k", "type": "quantitative", "title": "Estimate ('000)", "format": ",.1f" }
-    ]
+  "y": {
+    "field": "Estimate_k", 
+    "type": "quantitative",
+    "title": "Persons with disability ('000)",
+    "scale": {"zero": false}
   },
-
+  "color": {
+    "field": "Age",
+    "type": "nominal",
+    "title": "Age Group",
+    "legend": {"orient": "right", "labelLimit": 120}
+  },
+  "opacity": {
+    "condition": {"param": "ageFilter", "value": 0.9},
+    "value": 0.2
+  },
+  "tooltip": [
+    {"field": "Age", "type": "nominal", "title": "Age group"},
+    {"field": "YearNum", "type": "quantitative", "title": "Year", "format": "d"},
+    {"field": "Estimate_k", "type": "quantitative", "title": "Estimate ('000)", "format": ",.1f"}
+  ]
+},
   "title": { 
-    "text": "Persons with disability by age group (ABS 2003–2022)", 
     "anchor": "start",
     "fontSize": 20
   },

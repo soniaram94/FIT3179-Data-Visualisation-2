@@ -14,9 +14,18 @@
 </head>
 
 <body>
-  <main class="container">
-    <h1>Disability in Australia</h1>
-    <p class="sub">Interactive visuals (ABS SDAC). Use the legend on the chart to select/deselect age groups.</p>
+    <!-- Full-width hero banner -->
+  <header class="hero">
+    <div class="hero__inner">
+      <h1>Disability in Australia</h1>
+      <p class="sub">Interactive visuals (ABS SDAC). Use the legend on the chart to select/deselect age groups.</p>
+    </div>
+  </header>
+
+  <!-- Centered white strip that holds ALL your charts -->
+  <main class="page">
+    <div class="page__inner">
+
 
     <!-- AGE CHART + BUBBLE side by side -->
     <div class="grid equal">
@@ -27,7 +36,6 @@
   <div class="card">
     <h2>Sources of discrimination</h2>
     <div id="bubble" class="chart"></div>      <!-- or class="chart fixed-420" -->
-    <p class="muted">…</p>
   </div>
 </div>
 
@@ -76,6 +84,9 @@
         </ul>
       </aside>
     </div>
+    </div>
+</main>
+
 
   <script>
     const opts = { actions:false, renderer:"svg" };  
