@@ -75,7 +75,7 @@ html, body {
 /* ========== Type scale ========== */
 h1{ margin:0 0 8px; font-weight:800; font-size:clamp(42px,5vw,68px);letter-spacing: .3px; }
 h2{ margin:.2rem 0 12px; font-weight:800; font-size:clamp(20px,2.2vw,28px); }
-h3{ margin:.2rem 0 10px; font-weight:700; font-size:18px; }
+h3{ margin:.2rem 0 10px; font-weight:1000; font-size:30px; }
 .sub{ color:#dbeafe; }               /* only used in hero now */
 .muted{ color:var(--muted); }
 
