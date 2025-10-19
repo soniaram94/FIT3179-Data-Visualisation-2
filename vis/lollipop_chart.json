@@ -1,0 +1,77 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Disability type prevalence (All people, 2018)",
+  "data": {
+    "url": "https://raw.githubusercontent.com/soniaram94/FIT3179-Data-Visualisation-2/main/data/disability_type_prevalence_2018_total.csv"
+  },
+  "transform": [
+    { "calculate": "toNumber(datum.Percent)", "as": "Pct" }
+  ],
+  "width": "container",
+  "height": { "step": 32 },
+  "layer": [
+    {
+      "mark": { "type": "rule", "strokeWidth": 3, "opacity": 0.5, "color": "#467e73" },
+      "encoding": {
+        "y": { 
+          "field": "DisabilityType", 
+          "type": "ordinal", 
+          "sort": { "field": "Pct", "order": "descending" },
+          "title": null,
+          "axis": { "labelLimit": 400, "labelFontSize": 20 }
+        },
+        "x": { 
+          "field": "Pct",
+          "type": "quantitative",
+          "scale": { "domain": [0, 50] }
+        },
+        "x2": { "datum": 0 }
+      }
+    },
+    {
+      "mark": { "type": "point", "filled": true, "size": 500 },
+      "encoding": {
+        "y": { 
+          "field": "DisabilityType", 
+          "type": "ordinal", 
+          "sort": { "field": "Pct", "order": "descending" },
+          "title":null,
+          "axis": { "labelLimit": 500, "labelFontSize": 30 }
+        },
+        "x": {
+          "field": "Pct",
+          "type": "quantitative",
+          "title": "Per cent",
+          "scale": { "domain": [0, 50] },
+          "axis": { "labelFontSize": 20 }
+        },
+        "color": { 
+          "field": "Group", 
+          "type": "nominal", 
+          "title": "Disability group",
+          "scale": {
+            "range": ["#3DBAA2", "#0077B6", "#65c7bd","#8354b3","#9cc263"]
+          },
+          "legend": {
+            "orient": "bottom-right",
+            "offset":20,
+            "labelFontSize": 22,
+            "titleFontSize": 22
+          }
+        },
+        "tooltip": [
+          { "field": "DisabilityType", "title": "Disability type" },
+          { "field": "Group", "title": "Group" },
+          { "field": "Pct", "title": "Percent", "format": ".1f" }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "view": { "stroke": null },
+    "axis": {
+      "labelFontSize": 16,
+      "titleFontSize": 18
+    }
+  }
+}

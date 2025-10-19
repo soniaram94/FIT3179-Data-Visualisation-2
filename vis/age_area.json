@@ -69,6 +69,28 @@
           "legend": null
         }
       }
+    },
+    {
+      "mark": {
+        "type": "rule",
+        "strokeDash": [4, 4],
+        "strokeWidth": 2,
+        "color": "#162955"
+      },
+      "encoding": {
+        "x": { "datum": 2019 }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 5,
+        "dy": -10,
+        "fontSize": 15,
+        "fontWeight": "normal",
+        "color": "#1f1866"
+      }
     }
   ],
 

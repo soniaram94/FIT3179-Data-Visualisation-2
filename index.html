@@ -18,7 +18,7 @@
   <header class="hero">
     <div class="hero__inner">
       <h1>Disability in Australia</h1>
-      <p class="sub">Interactive visuals (ABS SDAC). Use the legend on the chart to select/deselect age groups.</p>
+      <p class="sub">This visualisation explores patterns of disability across Australia through a series of interactive charts. It examines how disability varies by gender, age, and type of limitation, the level of support people require for daily activities, and the different sources of discrimination experienced by those living with disability. Together, these visuals provide a broad yet detailed view of the social and demographic factors that shape disability experiences in Australia.</p>
     </div>
   </header>
 
@@ -32,46 +32,62 @@
         <h2>Persons with disability by gender(2003–2022)</h2>
         <div id="age" class="chart"></div>
         <div id="gender" class="legend-filter"></div>
+        <div class="note">
+          <h3>Gender trends over time</h3>
+            <p>This chart tracks changes in disability prevalence among males and females from 2003 to 2022. Both groups show a steady rise over time, with a sharper increase beginning around 2019. This surge may be linked to the effects of COVID-19, greater awareness of long-term health impacts, and an ageing population. Females consistently record higher disability numbers, which may reflect their longer life expectancy and higher likelihood of experiencing chronic health conditions. Overall, the trend highlights a growing need for health and support services across both genders.</p>
+        </div>
       </div>
       <div class="card">
-        <h2>Disability by age & limitation type — 2022</h2>
+        <h2>Disability by age & limitation type</h2>
         <div id="heatmap" class="chart"></div>
+        <div class="note">
+          <h3>Age patterns</h3>
+            <p>This chart compares disability estimates across different age groups and types of limitations. The data shows a clear upward trend in disability prevalence with increasing age, particularly beyond 60 years. As people age, physical decline, chronic health conditions, and mobility challenges become more common, contributing to higher rates of limitation. Individuals aged 70 and over experience noticeably greater disability across all categories, with physical limitations being the most dominant type. The highest estimates occur among those aged 80 and above, highlighting the significant link between ageing and disability.</p>
+        </div>
       </div>
     </div>
 
-    <!-- STACKED HORIZONTAL BARS + side copy -->
-    <h2>Assistance needed for core activities (by severity)</h2>
+    <!-- LOLLIPOP CHART + side copy -->
+     <div class="note">
+    <h4>━━━━━━━ ◦ ━━━━━━━━━━━ ◦ ━━━━━━━━━━━ ◦ ━━━━━━━━━━━ ◦ ━━━━━━━ ◦</h4>
+      </div>
+
+    <h2>Disability type prevalence </h2>
     <div class="grid">
-      <div id="activity" class="card"></div>
+      <div id="lollipop" class="card"></div>
       <aside class="card">
-        <h3>text here</h3>
-        <ul>
-          <li>Each bar = an activity; segments = Profound/Severe/Moderate.</li>
-          <li>Counts shown are in thousands ('000).</li>
-          <li>Use the legend to focus on specific levels.</li>
-          <li>source data and references from the abs site and give mroe info</li>
-          <li>mention what each characterisitic means for the 3 features of the stacedk chart</li>
-        </ul>
+        <h3>Disability type prevalence</h3>
+          <p>This chart shows the distribution of different disability types in 2018. The most common form is restriction in physical activities or work, affecting nearly half of all people with a disability. This is followed by chronic pain, sensory impairments, and mobility difficulties. Physical disabilities are the most prevalent overall, reflecting the strong link between disability and physical health conditions. Psychosocial and intellectual disabilities occur less frequently but still represent an important share of the population. Many individuals also experience multiple disability types at once, highlighting the complexity of disability experiences and the need for inclusive health and support services.</p>
       </aside>
     </div>
 
-    <!-- BUBBLE CHART (moved below) -->
-    <div class="card">
-      <h2>Sources of discrimination</h2>
-      <div id="bubble" class="chart" style="min-height: 500px;"></div>
+    <!-- STACKED HORIZONTAL BARS + side copy (SWAPPED ORDER) -->
+    <h2>Assistance needed for core activities (by severity)</h2>
+    <div class="grid--reverse">
+      <aside class="card">
+          <p>This chart shows the types of daily activities where people with disabilities require assistance, grouped by severity level. Mobility and cognitive or emotional tasks are the areas with the greatest need for support, followed by self-care and health care. Individuals with profound and severe disabilities consistently require more help across all activities, while moderate cases often manage more independently. The pattern highlights how physical and cognitive limitations significantly affect daily functioning, emphasizing the importance of accessible care and tailored assistance programs.</p>
+      </aside>
+      <div id="activity" class="card"></div>
     </div>
 
+    
     <div class="note">
-      <h3>About these charts</h3>
-      <p>
-        The line chart shows total people ('000) with disability by age group over time (ABS SDAC).
-        The heatmap shows disability estimates by age group and limitation severity for 2022.
-        The bubble chart summarises sources of discrimination; bubble size encodes the percentage within
-        each severity group.
-      </p>
-      <p>
-        relate to ABS data and analysis and comapre the charts and link to the examples and compare the trends
-      </p>
+      <h4>━━━━━━━ ◦ ━━━━━━━━━━━ ◦ ━━━━━━━━━━━ ◦ ━━━━━━━━━━━ ◦ ━━━━━━━ ◦</h4>
+          <h4>Experiences of Discrimination and Social Barriers</h4>
+          <p>
+            People with disability in Australia experience discrimination from a range of sources, affecting their confidence, wellbeing, and ability to participate fully in society. These experiences can arise in workplaces, public spaces, or even within personal relationships, often leading to heightened anxiety and social isolation. Patterns across the data reveal that discrimination is not only widespread but varies across regions and severity levels, reflecting deep-rooted social and structural inequalities. Addressing these barriers is essential to creating a more inclusive and supportive environment for all Australians with disability.
+          </p>
+        </div>
+
+    <!-- BUBBLE CHART -->
+    <h2>Sources of discrimination</h2>
+    <div class="grid">
+      <div class="card">
+        <div id="bubble" class="chart" style="min-height: 500px;"></div>
+      </div>
+      <aside class="card">
+          <p>This chart explores the different sources of discrimination experienced by people with disabilities in Australia. It reveals that strangers and public interactions are among the most common sources of discrimination, followed closely by workplaces and service providers. While discrimination can occur across all groups, individuals with severe or profound disabilities are generally more affected. Family or friends also emerge as a notable source, suggesting that social stigma can exist even within close relationships. Overall, the data highlights how discrimination extends beyond public spaces, reflecting broader social and structural barriers that contribute to exclusion and inequality for people with disabilities.</p>
+      </aside>
     </div>
 
     <!-- MAP + side copy -->
@@ -79,25 +95,31 @@
     <div class="grid">
       <div id="map" class="card"></div>
       <aside class="card">
-        <h3>text</h3>
-        <ul>
-          <li>Values are counts ('000), not rates.</li>
-          <li>Differences reflect both prevalence and population size.</li>
-          <li>analysis on the numbers for each state</li>
-          <li>common scenarios or situation, maybe realtes it to the abs againa nd include another chart side by side to comapre and analyse</li>
-          <li>more text.</li>
-        </ul>
+          <p>This map highlights state-level differences in experiences of disability-related discrimination across Australia. New South Wales records the highest number, with approximately 109.7 thousand people reporting experiences of discrimination, a figure that reflects both its large population and possibly greater public interaction among people with disabilities.</p>
+          <p>In contrast, the Northern Territory shows the lowest count, at around 3.4 thousand, likely influenced by its smaller population and regional dispersion. States such as Victoria and Queensland also report high numbers, following similar population trends, while smaller states like Tasmania and the ACT report lower values. These variations reveal how factors such as population density, access to disability support services, and social attitudes toward inclusion can shape the lived experiences of discrimination across different parts of the country.</p>
       </aside>
     </div>
+
+
+    <div class="note">
+      <h4>━━━━━━━ ◦ ━━━━━━━━━━━ ◦ ━━━━━━━━━━━ ◦ ━━━━━━━━━━━ ◦ ━━━━━━━ ◦</h4>
+          <h4>Final Insights: Rethinking Disability Inclusion</h4>
+          <p>
+            Across all these visuals, a clear message emerges, disability is not only a matter of individual health but also of social inclusion and access. The growing number of Australians living with disability highlights the pressing need for stronger government support, sustainable healthcare funding, and investment in aged care and rehabilitation services. Regional differences and patterns of discrimination show that access to support is uneven, and that awareness and education must extend beyond policy into everyday life. As Australia’s population continues to age, improving accessibility, workplace inclusion, and public health systems will be vital steps toward a more equitable society where every person, regardless of ability, can participate fully and with dignity.
+          </p>
+  </div>
     </div>
+
   </main>
+
 
   <script>
     const opts = { actions:false, renderer:"svg" };  
     vegaEmbed("#age", "vis/age_area.json", { actions:false }).catch(console.error);
     vegaEmbed("#heatmap", "vis/heat_map.json", { actions:false }).catch(console.error);
-    vegaEmbed("#bubble", "vis/discrimination_bubble.json", { actions:false }).catch(console.error);
+    vegaEmbed("#lollipop", "vis/lollipop_chart.json", { actions:false }).catch(console.error);
     vegaEmbed("#activity", "vis/activity_bars.json", {actions:false}).catch(console.error);
+    vegaEmbed("#bubble", "vis/discrimination_bubble.json", { actions:false }).catch(console.error);
     vegaEmbed("#map", "vis/map.json", { actions:false }).catch(console.error);
   </script>
 </body>
