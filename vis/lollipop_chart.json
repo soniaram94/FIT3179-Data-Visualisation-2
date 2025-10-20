@@ -31,7 +31,7 @@
       "field": "Pct",
       "type": "quantitative",
       "title": "Per cent",
-      "scale": { "domain": [0, 50] },
+      "scale": { "domain": [0, 150] },
       "axis": { "labelFontSize": 9, "titleFontSize": 9, "grid": true }
     },
     "color": {
