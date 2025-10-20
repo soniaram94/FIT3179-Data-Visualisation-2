@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 500,
-  "height": 600,
+  "width": "container",
+  "height": { "step": 26 },
   "background": "#ffffff",
 
   "data": {
@@ -29,7 +29,7 @@
             "60–64","65–69","70–74","75–79","80–84","85–89","90 and over"
           ],
           "title": "Age group",
-          "axis":{"labelFontSize":17}
+          "axis":{"labelFontSize":12}
         },
         "x": {
           "field": "Category",
