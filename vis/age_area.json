@@ -87,7 +87,7 @@
         "align": "left",
         "dx": 5,
         "dy": -10,
-        "fontSize": 15,
+        "fontSize": 10,
         "fontWeight": "normal",
         "color": "#1f1866"
       }
@@ -96,8 +96,8 @@
 
   "config": {
         "view": { "stroke": null },
-        "axis": { "labelFontSize": 15, "titleFontSize": 17, "labelLimit": 520 },
-        "legend": { "labelFontSize": 15, "titleFontSize": 17, "symbolSize": 140 }
+        "axis": { "labelFontSize": 10, "titleFontSize": 13, "labelLimit": 520 },
+        "legend": { "labelFontSize": 10, "titleFontSize": 13, "symbolSize": 100 }
     },
   
   "width": "container",
