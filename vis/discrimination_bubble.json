@@ -1,82 +1,63 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Sources of discrimination — bubble chart.",
-  "autosize": { "type": "fit", "contains": "padding", "resize": true },
+
   "width": "container",
   "height": 450,
-  "padding": { "top": 8, "right": 16, "bottom": 16, "left": 50 },
+  "autosize": { "type": "fit", "contains": "padding" },
+  "padding": { "top": 8, "right": 12, "bottom": 28, "left": 56 },
 
   "data": {
-    "url": "https://raw.githubusercontent.com/soniaram94/FIT3179-Data-Visualisation-2/main/data/discrimination_sources.csv"
+    "url": "https://raw.githubusercontent.com/soniaram94/FIT3179-Data-Visualisation-2/main/data/discrimination_sources.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "severe_pct": "number",
+        "other_pct":  "number",
+        "all_pct":    "number"
+      }
+    }
   },
 
   "transform": [
-    {"fold": ["severe_pct", "other_pct", "all_pct"], "as": ["group_key", "pct"]},
+    { "fold": ["severe_pct","other_pct","all_pct"], "as": ["group_key","pct_num"] },
     {
       "calculate": "datum.group_key === 'severe_pct' ? 'Severe/Profound' : (datum.group_key === 'other_pct' ? 'Other status' : 'All with disability')",
       "as": "group"
-    },
-    {
-      "calculate": "toNumber(datum.pct)",
-      "as": "pct_num"
     }
   ],
 
-  "mark": {
-    "type": "circle",
-    "opacity": 0.7
-  },
+  "mark": { "type": "circle", "opacity": 0.75 },
 
   "encoding": {
     "x": {
-      "field": "source",
-      "type": "nominal",
-      "axis": {
-        "title": "Source of Discrimination",
-        "labelAngle": -45,
-        "labelLimit": 200
-      }
+      "field": "source", "type": "nominal",
+      "axis": { "title": "Source of discrimination", "labelAngle": -45, "labelLimit": 220 }
     },
     "y": {
-      "field": "group",
-      "type": "nominal",
-      "axis": {
-        "title": "Disability Severity Group"
-      },
-      "sort": ["Severe/Profound", "Other status", "All with disability"]
+      "field": "group", "type": "nominal",
+      "sort": ["Severe/Profound", "Other status", "All with disability"],
+      "axis": { "title": "Disability severity group" }
     },
     "size": {
-      "field": "pct_num",
-      "type": "quantitative",
-      "title": "Percentage (%)",
-      "scale": {
-        "type": "linear",
-        "range": [100, 3000]
-      },
-      "legend": {"orient": "right"}
+      "field": "pct_num", "type": "quantitative", "title": "Percent (%)",
+      "scale": { "range": [80, 1600] },
+      "legend": { "orient": "top", "direction": "horizontal" }
     },
     "color": {
-      "field": "group",
-      "type": "nominal",
-      "scale": {
-        "domain": ["Severe/Profound", "Other status", "All with disability"],
-        "range": ["#18aad6", "#1c9984", "#3eab52"]
-      },
-      "legend": {"title": "Severity Group"}
+      "field": "group", "type": "nominal", "title": "Group",
+      "scale": { "range": ["#18aad6", "#1c9984", "#3eab52"] },
+      "legend": { "orient": "top", "direction": "horizontal" }
     },
     "tooltip": [
-      {"field": "source", "title": "Source"},
-      {"field": "group", "title": "Group"},
-      {"field": "pct_num", "title": "Percent (%)", "format": ".1f"}
+      { "field": "source", "title": "Source" },
+      { "field": "group", "title": "Group" },
+      { "field": "pct_num", "title": "Percent (%)", "format": ".1f" }
     ]
   },
 
   "config": {
-        "view": { "stroke": null },
-        "axis": { "labelFontSize": 15, "titleFontSize": 20, "labelLimit": 520 },
-        "legend": { "labelFontSize": 20, "titleFontSize": 20, "symbolSize": 140 }
-    }
-  
-
-
+    "view": { "stroke": null },
+    "axis": { "labelFontSize": 12, "titleFontSize": 12 }
+  }
 }
