@@ -2,46 +2,44 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Assistance by activity — stacked horizontal bars.",
   "width": "container",
-  "height": {"step": 20},
-  "autosize": { "type": "fit-x", "contains": "padding" },
+  "height": { "step": 22 },
+
+  "autosize": { "type": "fit", "contains": "padding" },
+  "padding": { "left": 20, "right": 20, "top": 6, "bottom": 28 },
 
   "data": {
     "url": "https://raw.githubusercontent.com/soniaram94/FIT3179-Data-Visualisation-2/main/data/assistance_by_activity_core.csv"
   },
 
-  "mark": {"type": "bar"},
+  "mark": { "type": "bar" },
 
   "encoding": {
     "y": {
-      "field": "activity",
-      "type": "nominal",
-      "sort": "-x",
-      "axis": {"title": null, "labelLimit": 180}
+      "field": "activity", "type": "nominal", "sort": "-x", "title": null,
+      "axis": { "labelLimit": 180, "labelAlign": "right", "labelPadding": 6 }
     },
-
     "x": {
-      "field": "estimate_k",
-      "type": "quantitative",
-      "stack": "zero",
-      "axis": {"title": "People ('000)"}
+      "field": "estimate_k", "type": "quantitative", "stack": "zero",
+      "axis": { "title": "People ('000)" }
     },
-
     "color": {
-      "field": "category",
-      "type": "nominal",
-      "scale": { 
+      "field": "category", "type": "nominal",
+      "scale": {
         "domain": ["Profound", "Severe", "Moderate"],
-        "range": ["#2fbdc2", "#2bd6a0", "#26dc7e"]
+        "range":  ["#2fbdc2", "#2bd6a0", "#26dc7e"]
       },
-      "legend": { "title": "Disability level" }
+      "legend": {
+        "title": "Disability level",
+        "orient": "top",                 
+        "direction": "horizontal",
+        "columns": 3,
+        "labelFontSize": 10,
+        "titleFontSize": 11,
+        "symbolSize": 90
+      }
     },
-
-    "order": { 
-      "field": "category", 
-      "type": "nominal",
-      "sort": ["Profound", "Severe", "Moderate"]
-    },
-
+    "order": { "field": "category", "type": "nominal",
+               "sort": ["Profound", "Severe", "Moderate"] },
     "tooltip": [
       { "field": "activity", "title": "Activity" },
       { "field": "category", "title": "Level" },
@@ -49,11 +47,8 @@
     ]
   },
 
-    
-    "config": {
-        "view": { "stroke": null },
-        "axis": { "labelFontSize": 10, "titleFontSize": 11, "labelLimit": 520 },
-        "legend": { "labelFontSize": 10, "titleFontSize": 11, "symbolSize": 90 }
-    }
-
+  "config": {
+    "view": { "stroke": null },
+    "axis": { "labelFontSize": 10, "titleFontSize": 11 }
+  }
 }
