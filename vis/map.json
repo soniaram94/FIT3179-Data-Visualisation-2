@@ -1,20 +1,24 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
   "width": "container",
-  "height": 650,
+  "height": 520,
   "background": "#c7e9ff",
+  "autosize": { "type": "fit", "contains": "padding" },
+
   "projection": {
     "type": "mercator",
-    "center": [133, -28],
-    "scale": 970
+    "fit": true                      
   },
+
   "layer": [
     {
       "data": {
         "url": "https://raw.githubusercontent.com/soniaram94/FIT3179-Data-Visualisation-2/refs/heads/main/data/australia_states.json",
-        "format": {"type": "topojson", "feature": "ne_50m_admin_1_states_provinces"}
+        "format": { "type": "topojson", "feature": "ne_50m_admin_1_states_provinces" }
       },
       "transform": [
+        { "filter": "datum.properties.iso_a2 == 'AU'" },   
         {
           "lookup": "properties.name",
           "from": {
@@ -26,7 +30,7 @@
           }
         }
       ],
-      "mark": {"type": "geoshape", "stroke": "#ffffff", "strokeWidth": 2},
+      "mark": { "type": "geoshape", "stroke": "#ffffff", "strokeWidth": 2 },
       "encoding": {
         "color": {
           "field": "Discrimination_thousands",
@@ -34,14 +38,16 @@
           "title": "Discrimination ('000)"
         },
         "tooltip": [
-          {"field": "properties.name", "title": "State"},
-          {"field": "Discrimination_thousands", "title": "Discrimination ('000)"}
+          { "field": "properties.name", "title": "State" },
+          { "field": "Discrimination_thousands", "title": "Discrimination ('000)" }
         ]
       }
     },
     {
-      "data": {"graticule": {"step": [10, 10]}},
-      "mark": {"type": "geoshape", "stroke": "#c5c5c5", "strokeWidth": 1, "fill": null}
+      "data": { "graticule": { "step": [10, 10] } },
+      "mark": { "type": "geoshape", "stroke": "#c5c5c5", "strokeWidth": 1, "fill": null }
     }
-  ]
+  ],
+
+  "config": { "view": { "stroke": null } }
 }
