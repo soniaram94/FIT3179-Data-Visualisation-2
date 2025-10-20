@@ -5,8 +5,8 @@
   --card:#ffffff;
   --ink:#0f172a;
   --muted:#475569;
-  --radius:12px;  /* Smaller radius */
-  --shadow:0 4px 16px rgba(15,23,42,.06);  /* Lighter shadow */
+  --radius:10px;
+  --shadow:0 2px 12px rgba(15,23,42,.04);
 }
 
 /* base  */
@@ -16,8 +16,8 @@ html, body {
   padding: 0;
   color: var(--ink);
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
-  line-height: 1.5;  /* Tighter line height */
-  font-size: 14px;  /* Much smaller base size */
+  line-height: 1.4;
+  font-size: 13px;  /* Even smaller */
 
   background: 
   linear-gradient(rgba(255,255,255,0.75), rgba(255,255,255,0.75)),
@@ -33,55 +33,55 @@ html, body {
   background:linear-gradient(90deg,var(--hero-start),var(--hero-end));
   color:#0a3345;
   box-shadow:var(--shadow);
-  padding:40px 20px 50px;  /* Smaller padding */
+  padding:30px 15px 35px;  /* Much smaller */
   text-align:center;              
 }
 
 .hero__inner{
-  max-width:1200px;  /* Smaller */
+  max-width:1000px;  /* Smaller */
   margin:0 auto;
-  padding: 0 30px;
+  padding: 0 25px;
 }
 
 .hero h1{
-  margin:0 0 12px;
+  margin:0 0 10px;
   font-weight:900;
-  font-size:clamp(36px,5vw,56px);  /* Smaller title */
-  letter-spacing:.3px;
+  font-size:clamp(28px,4vw,42px);  /* Smaller */
+  letter-spacing:.2px;
   color:#ffffff;
 }
 
 .hero p,
 .hero .sub{
   margin:0 auto;
-  max-width:1000px;  /* Smaller */
-  font-size:clamp(14px,2vw,16px);  /* Much smaller */
-  line-height:1.5;
+  max-width:850px;  /* Smaller */
+  font-size:clamp(12px,1.8vw,14px);  /* Much smaller */
+  line-height:1.4;
   color:#09253c;
-  font-weight:500;  /* Lighter weight */
+  font-weight:500;
 }
 
 /* Type scale  */
-h1{ margin:0 0 6px; font-weight:800; font-size:clamp(24px,3vw,32px); letter-spacing: .2px; }
-h2{ margin:.2rem 0 10px; font-weight:700; font-size:clamp(18px,2vw,24px); }
-h3{ margin:.2rem 0 8px; font-weight:700; font-size:clamp(16px,1.8vw,20px); }
-h4{ margin:.2rem 0 8px; font-weight:700; font-size:clamp(14px,1.6vw,18px); }
+h1{ margin:0 0 4px; font-weight:700; font-size:clamp(20px,2.5vw,26px); letter-spacing: .1px; }
+h2{ margin:.1rem 0 8px; font-weight:700; font-size:clamp(16px,1.8vw,20px); }
+h3{ margin:.1rem 0 6px; font-weight:700; font-size:clamp(14px,1.6vw,17px); }
+h4{ margin:.1rem 0 6px; font-weight:700; font-size:clamp(13px,1.4vw,16px); }
 
 /* Cards & side content */
 .card{
   background:var(--card);
   border-radius:var(--radius);
   box-shadow:var(--shadow);
-  padding:16px;  /* Smaller padding */
-  margin-bottom: 24px;  /* Less space */
+  padding:12px;  /* Much smaller */
+  margin-bottom: 20px;
 }
-aside.card{ padding:16px; }
-aside ul{ margin:8px 0; padding-left:20px; line-height:1.6; }
-aside li{ margin:6px 0; font-size:14px; }
+aside.card{ padding:12px; }
+aside ul{ margin:6px 0; padding-left:18px; line-height:1.5; }
+aside li{ margin:4px 0; font-size:12px; }
 
 /* Add spacing between major chart sections */
 .page__inner > h2 {
-  margin-top: 60px;  /* Less space */
+  margin-top: 45px;  /* Less space */
 }
 
 .page__inner > .grid.equal:first-child ~ h2:first-of-type {
@@ -89,33 +89,33 @@ aside li{ margin:6px 0; font-size:14px; }
 }
 
 .grid.equal {
-  margin-bottom: 60px;  /* Less space */
+  margin-bottom: 45px;
 }
 
 /* Chart container */
 .chart{
   background:#f8fafc;
   border:1px solid #e2e8f0;
-  border-radius:10px;
+  border-radius:8px;
   overflow:hidden;
   height: 100%;
-  min-height: 350px;  /* Smaller */
+  min-height: 280px;  /* Much smaller */
 }
 
 /* Notes/paragraph blocks */
 .note { 
   color: var(--muted);
-  margin: 40px 0;  /* Much less space */
-  font-size:14px;
+  margin: 30px 0;  /* Less space */
+  font-size:12px;  /* Smaller */
 }
 .card p { 
   color: var(--muted); 
-  font-size:14px;  /* Smaller text */
-  line-height:1.6;
+  font-size:12px;  /* Smaller */
+  line-height:1.5;
 }
 
 .note p{
-  margin: 0 0 16px;  /* Less space */
+  margin: 0 0 12px;  /* Less space */
 }
 .note p:last-child{
   margin-bottom: 0;
@@ -123,8 +123,8 @@ aside li{ margin:6px 0; font-size:14px; }
 
 .grid.equal{
   display:grid;
-  grid-template-columns: 550px 550px;  /* Much smaller */
-  gap: 24px;  /* Less gap */
+  grid-template-columns: 480px 480px;  /* Much smaller */
+  gap: 20px;  /* Less gap */
   justify-content:center;
   align-items:start;
 }
@@ -137,29 +137,29 @@ aside li{ margin:6px 0; font-size:14px; }
 
 .grid.equal .chart{ 
   flex:1;
-  min-height: 450px;  /* Smaller */
+  min-height: 350px;  /* Smaller */
 }
 
 /* --- WHITE STRIP (page wrapper) --- */
 .page{
-  max-width: 1300px;  /* Smaller */
-  margin: -5px auto 40px;
+  max-width: 1100px;  /* Much smaller */
+  margin: -5px auto 35px;
   background: #ffffff;
-  border-radius: 14px;
-  box-shadow: 0 8px 24px rgba(92, 194, 207, 0.3);
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(92, 194, 207, 0.25);
 }
 
 .page__inner{
-  padding: 24px 20px 32px;  /* Less padding */
+  padding: 20px 16px 28px;  /* Less padding */
 }
 
 .legend-filter{
   display: flex;
   justify-content: flex-end;
-  gap: 6px;
-  margin-top: 4px;
-  margin-right: 10px;
-  font: 13px/1.2 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;  /* Smaller */
+  gap: 5px;
+  margin-top: 3px;
+  margin-right: 8px;
+  font: 11px/1.2 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;  /* Smaller */
 }
 
 h4 {
@@ -170,27 +170,27 @@ h4 {
 .footer {
   background: linear-gradient(90deg, #2c5f6f, #4a9ba8);
   color: #ffffff;
-  padding: 30px 20px;  /* Less padding */
-  margin-top: 50px;
+  padding: 25px 15px;
+  margin-top: 40px;
   text-align: center;
 }
 
 .footer__content {
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
 .footer__title {
-  font-size: 16px;  /* Smaller */
+  font-size: 14px;  /* Smaller */
   font-weight: 600;
-  margin: 0 0 20px 0;
+  margin: 0 0 16px 0;
   color: #ffffff;
 }
 
 .footer__sources h4 {
-  font-size: 14px;  /* Smaller */
+  font-size: 13px;  /* Smaller */
   font-weight: 700;
-  margin: 0 0 12px 0;
+  margin: 0 0 10px 0;
   color: #ffffff;
 }
 
@@ -198,12 +198,12 @@ h4 {
   list-style: none;
   padding: 0;
   margin: 0;
-  font-size: 13px;  /* Smaller */
-  line-height: 1.7;
+  font-size: 11px;  /* Smaller */
+  line-height: 1.6;
 }
 
 .footer__sources li {
-  margin: 6px 0;
+  margin: 5px 0;
   color: #e0f2f7;
 }
 
@@ -211,5 +211,5 @@ h4 {
   content: "• ";
   color: #9ef1e6;
   font-weight: bold;
-  margin-right: 8px;
+  margin-right: 6px;
 }
