@@ -1,3 +1,4 @@
+/* ========== Design tokens ========== */
 :root{
   --bg:#eaf0f5;
   --hero-start:#529495;
@@ -5,11 +6,12 @@
   --card:#ffffff;
   --ink:#0f172a;
   --muted:#475569;
+  --accent:#48aab9;      /* new: accent for headings */
   --radius:10px;
   --shadow:0 2px 12px rgba(15,23,42,.04);
 }
 
-/* base  */
+/* ========== Base ========== */
 *{ box-sizing:border-box; }
 html, body {
   margin: 0;
@@ -17,156 +19,157 @@ html, body {
   color: var(--ink);
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
   line-height: 1.4;
-  font-size: 13px;  /* Even smaller */
+  font-size: 13px;
 
-  background: 
-  linear-gradient(rgba(255,255,255,0.75), rgba(255,255,255,0.75)),
-  url("download.png");
+  /* Background image with soft overlay */
+  background:
+    linear-gradient(rgba(255,255,255,0.75), rgba(255,255,255,0.75)),
+    url("download.png");
   background-size: auto;
   background-position: center top;
   background-attachment: fixed;
-  background-repeat: repeat;  
+  background-repeat: repeat;
 }
 
-/* Hero banner */
+/* ========== Hero banner ========== */
 .hero{
   background:linear-gradient(90deg,var(--hero-start),var(--hero-end));
   color:#0a3345;
   box-shadow:var(--shadow);
-  padding:30px 15px 35px;  /* Much smaller */
-  text-align:center;              
+  padding:30px 15px 35px;
+  text-align:center;
 }
-
 .hero__inner{
-  max-width:1000px;  /* Smaller */
+  max-width:1000px;
   margin:0 auto;
   padding: 0 25px;
 }
-
 .hero h1{
   margin:0 0 10px;
   font-weight:900;
-  font-size:clamp(28px,4vw,42px);  /* Smaller */
+  font-size:clamp(28px,4vw,42px);
   letter-spacing:.2px;
   color:#ffffff;
 }
-
 .hero p,
 .hero .sub{
   margin:0 auto;
-  max-width:850px;  /* Smaller */
-  font-size:clamp(12px,1.8vw,14px);  /* Much smaller */
+  max-width:850px;
+  font-size:clamp(12px,1.8vw,14px);
   line-height:1.4;
   color:#09253c;
   font-weight:500;
 }
 
-/* Type scale  */
+/* ========== Type scale ========== */
 h1{ margin:0 0 4px; font-weight:700; font-size:clamp(20px,2.5vw,26px); letter-spacing: .1px; }
 h2{ margin:.1rem 0 8px; font-weight:700; font-size:clamp(14px,1.8vw,17px); }
-h3{ margin:.1rem 0 6px; font-weight:700; font-size:clamp(14px,1.6vw,17px); }
-h4{ margin:.1rem 0 6px; font-weight:700; font-size:clamp(13px,1.4vw,16px); }
+h3{ margin:.1rem 0 6px; font-weight:700; font-size:clamp(14px,1.6vw,17px); color: var(--accent); } /* coloured h3 */
+h4{ margin:.1rem 0 6px; font-weight:700; font-size:clamp(13px,1.4vw,16px); color: var(--accent); }
 
-/* Cards & side content */
+/* ========== Cards & text ========== */
 .card{
   background:var(--card);
   border-radius:var(--radius);
   box-shadow:var(--shadow);
-  padding:12px;  /* Much smaller */
+  padding:12px;
   margin-bottom: 20px;
 }
 aside.card{ padding:12px; }
-aside ul{ margin:6px 0; padding-left:18px; line-height:1.5; }
-aside li{ margin:4px 0; font-size:12px; }
+.card p { color: var(--muted); font-size:12px; line-height:1.5; }
 
-/* Add spacing between major chart sections */
-.page__inner > h2 {
-  margin-top: 45px;  /* Less space */
+.note { 
+  color: var(--muted);
+  margin: 30px 0;
+  font-size:12px;
+}
+.note p{ margin: 0 0 12px; }
+.note p:last-child{ margin-bottom: 0; }
+
+/* ========== Page wrapper (white strip) ========== */
+.page{
+  max-width: 1100px;
+  margin: -5px auto 35px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(92, 194, 207, 0.25);
+}
+.page__inner{ padding: 20px 16px 28px; }
+
+/* Spacing between major chart sections */
+.page__inner > h2 { margin-top: 45px; }
+.page__inner > .grid.equal:first-child ~ h2:first-of-type { margin-top: 0; }
+
+/* ========== Grid systems ========== */
+/* Base two-column grid (used by many sections) */
+.grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items:start;
+  justify-content:center;
 }
 
-.page__inner > .grid.equal:first-child ~ h2:first-of-type {
-  margin-top: 0;
-}
-
-.grid.equal {
+/* “equal” variant with fixed-ish columns for the first section */
+.grid.equal{
+  grid-template-columns: 480px 480px;
+  gap: 20px;
   margin-bottom: 45px;
 }
 
-/* Chart container */
+/* Reverse order for aside-first layout */
+.grid--reverse{
+  display:grid;
+  grid-template-columns: 1fr 2fr;  /* aside then chart larger */
+  gap: 20px;
+  align-items:start;
+}
+
+/* Ensure flex cards don’t clip children */
+.grid.equal .card{
+  height:auto; 
+  display:flex;
+  flex-direction:column;
+  min-width:0;            /* critical for container width */
+}
+
+/* ========== Chart containers ========== */
 .chart{
   background:#f8fafc;
   border:1px solid #e2e8f0;
   border-radius:8px;
   overflow:hidden;
   height: 100%;
-  min-height: 280px;  /* Much smaller */
+  min-height: 280px;
 }
 
-/* Notes/paragraph blocks */
-.note { 
-  color: var(--muted);
-  margin: 30px 0;  /* Less space */
-  font-size:12px;  /* Smaller */
-}
-.card p { 
-  color: var(--muted); 
-  font-size:12px;  /* Smaller */
-  line-height:1.5;
-}
-
-.note p{
-  margin: 0 0 12px;  /* Less space */
-}
-.note p:last-child{
-  margin-bottom: 0;
-}
-
-.grid.equal{
-  display:grid;
-  grid-template-columns: 480px 480px;  /* Much smaller */
-  gap: 20px;  /* Less gap */
-  justify-content:center;
-  align-items:start;
-}
-
-.grid.equal .card{ 
-  height:auto; 
-  display:flex;
-  flex-direction:column;
-}
-
+/* Let the chart grow in flex cards */
 .grid.equal .chart{ 
   flex:1;
-  min-height: 350px;  /* Smaller */
+  min-height: 350px;
 }
 
-/* --- WHITE STRIP (page wrapper) --- */
-.page{
-  max-width: 1100px;  /* Much smaller */
-  margin: -5px auto 35px;
-  background: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(92, 194, 207, 0.25);
+/* Vega-Embed: make embeds fill container width */
+.chart .vega-embed,
+.chart .vega-embed > div {
+  width: 100% !important;
+  max-width: 100% !important;
 }
 
-.page__inner{
-  padding: 20px 16px 28px;  /* Less padding */
-}
+/* Occasionally flex parents cause width collapse — safeguard */
+.card, .chart { min-width: 0; }
 
+/* Legend / control strip */
 .legend-filter{
   display: flex;
   justify-content: flex-end;
-  gap: 5px;
-  margin-top: 3px;
+  gap: 6px;
+  margin-top: 6px;
   margin-right: 8px;
-  font: 11px/1.2 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;  /* Smaller */
+  font: 11px/1.2 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
 }
 
-h4 {
-  color: #48aab9;
-}
-
-/* Footer  */
+/* ========== Footer ========== */
 .footer {
   background: linear-gradient(90deg, #2c5f6f, #4a9ba8);
   color: #ffffff;
@@ -174,42 +177,25 @@ h4 {
   margin-top: 40px;
   text-align: center;
 }
+.footer__content { max-width: 1000px; margin: 0 auto; }
+.footer__title { font-size: 14px; font-weight: 600; margin: 0 0 16px 0; color: #ffffff; }
+.footer__sources h4 { font-size: 13px; font-weight: 700; margin: 0 0 10px 0; color: #ffffff; }
+.footer__sources ul { list-style: none; padding: 0; margin: 0; font-size: 11px; line-height: 1.6; }
+.footer__sources li { margin: 5px 0; color: #e0f2f7; }
+.footer__sources li::before { content: "• "; color: #9ef1e6; font-weight: bold; margin-right: 6px; }
 
-.footer__content {
-  max-width: 1000px;
-  margin: 0 auto;
+/* ========== Responsive ========== */
+@media (max-width: 1100px){
+  .grid.equal{ grid-template-columns: 1fr 1fr; }
+  .page{ margin: 0 auto 24px; }
 }
-
-.footer__title {
-  font-size: 14px;  /* Smaller */
-  font-weight: 600;
-  margin: 0 0 16px 0;
-  color: #ffffff;
-}
-
-.footer__sources h4 {
-  font-size: 13px;  /* Smaller */
-  font-weight: 700;
-  margin: 0 0 10px 0;
-  color: #ffffff;
-}
-
-.footer__sources ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  font-size: 11px;  /* Smaller */
-  line-height: 1.6;
-}
-
-.footer__sources li {
-  margin: 5px 0;
-  color: #e0f2f7;
-}
-
-.footer__sources li::before {
-  content: "• ";
-  color: #9ef1e6;
-  font-weight: bold;
-  margin-right: 6px;
+@media (max-width: 800px){
+  .grid,
+  .grid.equal,
+  .grid--reverse{
+    grid-template-columns: 1fr;   /* stack */
+  }
+  .hero__inner{ padding: 0 16px; }
+  .page__inner{ padding: 16px 12px 22px; }
+  .chart{ min-height: 240px; }
 }
