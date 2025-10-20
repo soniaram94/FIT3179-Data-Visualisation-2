@@ -1,6 +1,5 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Disability type prevalence (All people, 2018)",
   "data": {
     "url": "https://raw.githubusercontent.com/soniaram94/FIT3179-Data-Visualisation-2/main/data/disability_type_prevalence_2018_total.csv"
   },

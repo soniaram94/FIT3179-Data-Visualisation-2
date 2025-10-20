@@ -1,4 +1,4 @@
-/* ========== Design tokens ========== */
+
 :root{
   --bg:#eaf0f5;                /* page background */
   --hero-start:#529495;        /* banner gradient */
@@ -10,7 +10,7 @@
   --shadow:0 6px 24px rgba(15,23,42,.08);
 }
 
-/* ========== Base ========== */
+/* base  */
 *{ box-sizing:border-box; }
 html, body {
   margin: 0;
@@ -20,7 +20,7 @@ html, body {
   line-height: 1.55;
   font-size: 25px;
 
-  /* === Background image outside white strip === */
+  /* Background image outside white strip */
   background: 
   linear-gradient(rgba(255,255,255,0.75), rgba(255,255,255,0.75)),
   url("download.png");
@@ -31,13 +31,13 @@ html, body {
 }
 
 
-/* ========== Hero banner (top title strip) ========== */
+/* Hero banner (top title strip) */
 .hero{
   background:linear-gradient(90deg,var(--hero-start),var(--hero-end));
   color:#0a3345;
   box-shadow:var(--shadow);
-  padding:70px 20px 80px;          /* slightly taller hero */
-  text-align:center;               /* center content */
+  padding:70px 20px 80px;          
+  text-align:center;              
 }
 
 .hero__inner{
@@ -48,8 +48,8 @@ html, body {
 
 .hero h1{
   margin:0 0 12px;
-  font-weight:900;                 /* bold & valid value */
-  font-size:clamp(50px,7vw,100px);  /* larger title */
+  font-weight:900;                 
+  font-size:clamp(50px,7vw,100px);  
   letter-spacing:.4px;
   color:#ffffff;
 }
@@ -65,7 +65,7 @@ html, body {
 }
 
 
-/* ========== Content wrapper ========== */
+/* Content wrapper  */
 .container, .wrap{
   max-width:1200px;
   width:100%;
@@ -73,7 +73,7 @@ html, body {
   padding:32px 18px 80px;
 }
 
-/* ========== Type scale ========== */
+/* Type scale  */
 h1{ margin:0 0 8px; font-weight:800; font-size:clamp(42px,5vw,68px);letter-spacing: .3px; }
 h2{ margin:.2rem 0 12px; font-weight:1000; font-size:clamp(35px,2.2vw,28px); }
 h3{ margin:.2rem 0 12px; font-weight:1000; font-size:clamp(40px,2.2vw,28px); }
@@ -81,7 +81,7 @@ h4{ margin:.2rem 0 12px; font-weight:1000; font-size:clamp(40px,2.2vw,28px); }
 .sub{ color:#dbeafe; }               /* only used in hero now */
 .muted{ color:var(--muted); }
 
-/* ========== Grid layout ========== */
+/* Grid layout */
 .grid{ display:grid; grid-template-columns:1fr; gap:var(--gap); }
 .grid--wide{ display:grid; grid-template-columns:1fr; gap:var(--gap); }
 .grid--reverse{ display:grid; grid-template-columns:1fr; gap:var(--gap); }
@@ -92,13 +92,13 @@ h4{ margin:.2rem 0 12px; font-weight:1000; font-size:clamp(40px,2.2vw,28px); }
 }
 
 
-/* ========== Cards & side content ========== */
+/* Cards & side content */
 .card{
   background:var(--card);
   border-radius:var(--radius);
   box-shadow:var(--shadow);
   padding:18px;
-  margin-bottom: 40px; /* ADD THIS - creates space below each card */
+  margin-bottom: 40px; 
 }
 aside.card{ padding:18px; }
 aside ul{ margin:10px 0; padding-left:22px; line-height:1.7; }
@@ -106,39 +106,34 @@ aside li{ margin:8px 0; }
 
 /* Add spacing between major chart sections */
 .page__inner > h2 {
-  margin-top: 130px; /* space above each section heading */
+  margin-top: 130px; 
 }
 
 .page__inner > .grid.equal:first-child ~ h2:first-of-type {
-  margin-top: 0; /* remove extra margin after first grid */
+  margin-top: 0; 
 }
 
 .grid.equal {
-  margin-bottom: 100px; /* space after the equal grid section */
+  margin-bottom: 100px; 
 }
 
-
-
-/* ========== Chart container ========== */
+/* Chart container */
 .chart{
   background:#f8fafc;
   border:1px solid #e2e8f0;
   border-radius:14px;
   overflow:hidden;
-  height: 100%; /* ADD THIS - makes chart fill the card */
-  min-height: 500px; /* ADD THIS - ensures minimum height */
+  height: 100%; 
+  min-height: 500px; 
 }
 
-
-/* Make Vega containers fluid without forcing huge min-heights */
-/* Make Vega containers fluid */
 .vega-embed{ 
   width:100%; 
-  height:100%; /* ADD THIS */
+  height:100%; 
 }
 .vega-embed > *{ 
   width:100%; 
-  height:100%; /* ADD THIS */
+  height:100%; 
   max-width:100%; 
 }
 .vega-embed svg{ 
@@ -147,23 +142,22 @@ aside li{ margin:8px 0; }
   display:block; 
 }
 
-/* ========== Notes/paragraph blocks ========== */
 /* Notes/paragraph blocks */
 .note { 
   color: var(--muted);
-  margin: 150px 0;          /* space before & after the note */
+  margin: 150px 0;         
 }
 .card p { color: var(--muted); }
 
 .note p{
-  margin: 0 0 24px;         /* spacing between paragraphs inside */
+  margin: 0 0 24px;         
 }
 .note p:last-child{
   margin-bottom: 0;
 }
 
 
-/* ========== Responsive tweaks ========== */
+/* few more tweaks */
 @media (max-width:980px){
   .container, .wrap{ padding:26px 16px 56px; }
 }
@@ -179,53 +173,97 @@ aside li{ margin:8px 0; }
 /* Cards should stretch vertically */
 .grid.equal .card{ 
   height:auto; 
-  display:flex; /* CHANGE to flex */
-  flex-direction:column; /* CHANGE - stack children vertically */
+  display:flex;
+  flex-direction:column;
 }
 
 .grid.equal .chart{ 
-  flex:1; /* CHANGE - makes chart grow */
-  min-height: 800px; /* keeps minimum height */
+  flex:1; 
+  min-height: 800px; 
 }
 
-/* Mobile: stack the two cards */
 @media (max-width:980px){
-  .grid.equal{ grid-template-columns: 1fr; }   /* was 2fr */
+  .grid.equal{ grid-template-columns: 1fr; }   
 }
 
 
 /* --- WHITE STRIP (page wrapper) --- */
 .page{
-  max-width: 2200px;                 /* width of the white strip */
-  margin: -5px auto 64px;           /* pulls strip slightly into the hero */
-  background: #ffffff;                  /* white strip */
+  max-width: 2200px;                
+  margin: -5px auto 64px;           
+  background: #ffffff;                  
   border-radius: 18px;
-  box-shadow: 0 10px 30px rgba(92, 194, 207, 0.726);
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.726);
 }
 
-/* Inner padding for the white strip */
 .page__inner{
   padding: 32px 24px 48px;
 }
 
-/* Make sure headings/captions don't add stray gaps inside cards */
 .card > *:first-child { margin-top: 0; }
 .card > *:last-child  { margin-bottom: 0; }
 
-/* Ensure Vega charts fill the .chart box exactly */
 .vega-embed svg { width: 100%; height: 100%; display: block; }
 
-/* legend for the area chart*/
 
 .legend-filter{
   display: flex;
-  justify-content: flex-end; /* push to the right (under legend) */
+  justify-content: flex-end; 
   gap: 8px;
-  margin-top: 6px;           /* small spacing below chart frame */
-  margin-right: 12px;        /* align with chart padding */
+  margin-top: 6px;           
+  margin-right: 12px;       
   font: 20px/1.2 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
 }
 
 h4 {
-  color: #48aab9;   /* <-- pick any colour you like */
+  color: #48aab9;  
+}
+
+
+/* Footer  */
+.footer {
+  background: linear-gradient(90deg, #2c5f6f, #4a9ba8);
+  color: #ffffff;
+  padding: 40px 20px;
+  margin-top: 80px;
+  text-align: center;
+}
+
+.footer__content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer__title {
+  font-size: 30px;
+  font-weight: 600;
+  margin: 0 0 30px 0;
+  color: #ffffff;
+}
+
+.footer__sources h4 {
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0 0 15px 0;
+  color: #ffffff;
+}
+
+.footer__sources ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.footer__sources li {
+  margin: 8px 0;
+  color: #e0f2f7;
+}
+
+.footer__sources li::before {
+  content: "• ";
+  color: #9ef1e6;
+  font-weight: bold;
+  margin-right: 8px;
 }
