@@ -2,8 +2,8 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Sources of discrimination — bubble chart.",
   
-  "width": 250,
-  "height": 220,
+  "width": 270,
+  "height": 200,
   "padding": { "top": 8, "right": 10, "bottom": 24, "left": 10 },
   
   "data": {
