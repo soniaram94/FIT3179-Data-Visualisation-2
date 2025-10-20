@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Assistance by activity — stacked horizontal bars.",
   "width": "container",
-  "height": {"step": 50},
+  "height": {"step": 20},
   "autosize": { "type": "fit-x", "contains": "padding" },
 
   "data": {
@@ -16,7 +16,7 @@
       "field": "activity",
       "type": "nominal",
       "sort": "-x",
-      "axis": {"title": null, "labelLimit": 340}
+      "axis": {"title": null, "labelLimit": 180}
     },
 
     "x": {
@@ -52,8 +52,8 @@
     
     "config": {
         "view": { "stroke": null },
-        "axis": { "labelFontSize": 20, "titleFontSize": 17, "labelLimit": 520 },
-        "legend": { "labelFontSize": 20, "titleFontSize": 17, "symbolSize": 140 }
+        "axis": { "labelFontSize": 10, "titleFontSize": 11, "labelLimit": 520 },
+        "legend": { "labelFontSize": 10, "titleFontSize": 11, "symbolSize": 90 }
     }
 
 }
