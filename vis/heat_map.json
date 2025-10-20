@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 900,
+  "width": 500,
   "height": 600,
   "background": "#ffffff",
 
@@ -35,7 +35,7 @@
           "field": "Category",
           "type": "ordinal",
           "title": "Limitation / restriction category",
-          "axis": {"labelAngle": -45, "labelAlign": "right", "labelLimit": 200,"labelFontSize":14}
+          "axis": {"labelAngle": -45, "labelAlign": "right", "labelLimit": 200,"labelFontSize":10}
         },
         "color": {
           "field": "Estimate (\\'000)",
@@ -83,16 +83,16 @@
     "view": { "stroke": null },
     "axis": { 
       "grid": false, 
-      "labelFontSize": 14, 
-      "titleFontSize": 14,
+      "labelFontSize": 10, 
+      "titleFontSize": 10,
       "labelLimit": 200
     },
     "legend": { 
-      "titleFontSize": 15,
-      "labelFontSize": 14
+      "titleFontSize": 13,
+      "labelFontSize": 11
     },
     "checkbox": {
-      "labelFontSize": 12
+      "labelFontSize": 10
     }
   }
 }
