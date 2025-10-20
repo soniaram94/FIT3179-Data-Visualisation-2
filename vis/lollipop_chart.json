@@ -11,7 +11,7 @@
 
   "autosize": { "type": "fit", "contains": "padding" },
   "width": "container",
-  "height": { "step": 28 },               /* 26–30 is a good range */
+  "height": { "step": 20 },               
   "padding": { "left": 220, "right": 8, "top": 8, "bottom": 40 },
 
   "encoding": {
@@ -22,7 +22,7 @@
       "title": null,
       "axis": {
         "labelLimit": 1000,
-        "labelFontSize": 13,
+        "labelFontSize": 9,
         "labelAlign": "right",
         "labelPadding": 6
       }
@@ -32,7 +32,7 @@
       "type": "quantitative",
       "title": "Per cent",
       "scale": { "domain": [0, 50] },
-      "axis": { "labelFontSize": 12, "titleFontSize": 12, "grid": true }
+      "axis": { "labelFontSize": 9, "titleFontSize": 9, "grid": true }
     },
     "color": {
       "field": "Group",
@@ -45,8 +45,8 @@
         "orient": "top",
         "direction": "horizontal",
         "columns": 3,
-        "labelFontSize": 12,
-        "titleFontSize": 12,
+        "labelFontSize": 9,
+        "titleFontSize": 9,
         "symbolType": "circle",
         "symbolSize": 80
       }
@@ -66,12 +66,12 @@
       }
     },
     {
-      "mark": { "type": "point", "filled": true, "size": 160, "opacity": 1 }
+      "mark": { "type": "point", "filled": true, "size": 100, "opacity": 1 }
     }
   ],
 
   "config": {
     "view": { "stroke": null },
-    "axis": { "labelFontSize": 12, "titleFontSize": 12 }
+    "axis": { "labelFontSize": 9, "titleFontSize": 9 }
   }
 }
