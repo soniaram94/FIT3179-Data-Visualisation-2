@@ -3,7 +3,7 @@
   "description": "Sources of discrimination — bubble chart.",
   "autosize": { "type": "fit", "contains": "padding", "resize": true },
   "width": "container",
-  "height": "container",
+  "height": 450,
   "padding": { "top": 8, "right": 16, "bottom": 16, "left": 50 },
 
   "data": {
