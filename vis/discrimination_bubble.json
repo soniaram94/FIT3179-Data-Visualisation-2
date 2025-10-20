@@ -2,9 +2,9 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Sources of discrimination — bubble chart.",
   
-  "width": 480,
-  "height": 320,
-  "padding": { "top": 8, "right": 10, "bottom": 24, "left": 50 },
+  "width": 250,
+  "height": 220,
+  "padding": { "top": 8, "right": 10, "bottom": 24, "left": 10 },
   
   "data": {
     "url": "https://raw.githubusercontent.com/soniaram94/FIT3179-Data-Visualisation-2/main/data/discrimination_sources.csv",
@@ -52,8 +52,8 @@
       "field": "pct_num", "type": "quantitative", "title": "Percent (%)",
       "scale": { "range": [60, 1200] },
       "legend": { 
-        "orient": "top", 
-        "direction": "horizontal", 
+        "orient": "right", 
+        "direction": "vertical", 
         "labelFontSize": 10, 
         "titleFontSize": 11 
       }
@@ -62,8 +62,8 @@
       "field": "group", "type": "nominal", "title": "Group",
       "scale": { "range": ["#18aad6", "#1c9984", "#3eab52"] },
       "legend": { 
-        "orient": "top", 
-        "direction": "horizontal", 
+        "orient": "right", 
+        "direction": "vertical", 
         "labelFontSize": 10, 
         "titleFontSize": 11 
       }
