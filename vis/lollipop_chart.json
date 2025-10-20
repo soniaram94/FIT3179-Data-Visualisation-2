@@ -12,7 +12,7 @@
   "autosize": { "type": "fit", "contains": "padding" },
   "width": "container",
   "height": { "step": 20 },               
-  "padding": { "left": 220, "right": 8, "top": 8, "bottom": 40 },
+  "padding": { "left": 40, "right": 8, "top": 8, "bottom": 20 },
 
   "encoding": {
     "y": {
@@ -21,7 +21,7 @@
       "sort": { "field": "Pct", "order": "descending" },
       "title": null,
       "axis": {
-        "labelLimit": 1000,
+        "labelLimit": 180,
         "labelFontSize": 9,
         "labelAlign": "right",
         "labelPadding": 6
@@ -31,7 +31,7 @@
       "field": "Pct",
       "type": "quantitative",
       "title": "Per cent",
-      "scale": { "domain": [0, 150] },
+      "scale": { "domain": [0, 50] },
       "axis": { "labelFontSize": 9, "titleFontSize": 9, "grid": true }
     },
     "color": {
