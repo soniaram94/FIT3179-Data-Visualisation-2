@@ -2,9 +2,9 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Sources of discrimination — bubble chart.",
   
-  "width": 600,
-  "height": 380,
-  "padding": { "top": 8, "right": 12, "bottom": 28, "left": 56 },
+  "width": 480,
+  "height": 320,
+  "padding": { "top": 8, "right": 10, "bottom": 24, "left": 50 },
   
   "data": {
     "url": "https://raw.githubusercontent.com/soniaram94/FIT3179-Data-Visualisation-2/main/data/discrimination_sources.csv",
@@ -31,22 +31,42 @@
   "encoding": {
     "x": {
       "field": "source", "type": "nominal",
-      "axis": { "title": "Source of discrimination", "labelAngle": -45, "labelLimit": 220, "labelFontSize": 11, "titleFontSize": 12 }
+      "axis": { 
+        "title": "Source of discrimination", 
+        "labelAngle": -45, 
+        "labelLimit": 150,
+        "labelFontSize": 10, 
+        "titleFontSize": 11 
+      }
     },
     "y": {
       "field": "group", "type": "nominal",
       "sort": ["Severe/Profound", "Other status", "All with disability"],
-      "axis": { "title": "Disability severity group", "labelFontSize": 11, "titleFontSize": 12 }
+      "axis": { 
+        "title": "Disability severity group", 
+        "labelFontSize": 10, 
+        "titleFontSize": 11 
+      }
     },
     "size": {
       "field": "pct_num", "type": "quantitative", "title": "Percent (%)",
-      "scale": { "range": [80, 1600] },
-      "legend": { "orient": "top", "direction": "horizontal", "labelFontSize": 11, "titleFontSize": 12 }
+      "scale": { "range": [60, 1200] },
+      "legend": { 
+        "orient": "top", 
+        "direction": "horizontal", 
+        "labelFontSize": 10, 
+        "titleFontSize": 11 
+      }
     },
     "color": {
       "field": "group", "type": "nominal", "title": "Group",
       "scale": { "range": ["#18aad6", "#1c9984", "#3eab52"] },
-      "legend": { "orient": "top", "direction": "horizontal", "labelFontSize": 11, "titleFontSize": 12 }
+      "legend": { 
+        "orient": "top", 
+        "direction": "horizontal", 
+        "labelFontSize": 10, 
+        "titleFontSize": 11 
+      }
     },
     "tooltip": [
       { "field": "source", "title": "Source" },
